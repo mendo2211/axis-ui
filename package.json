@@ -1,0 +1,24 @@
+{
+  "name": "@axis-human/ui",
+  "version": "0.1.0",
+  "description": "Axis Human shared design system: theme (dark/light), UI components, mobile responsive primitives. Extraído de Axis Gov v1.31.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./global.css": "./src/theme/global.css"
+  },
+  "files": [
+    "src"
+  ],
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mendo2211/axis-ui.git"
+  },
+  "license": "UNLICENSED",
+  "private": false
+}
