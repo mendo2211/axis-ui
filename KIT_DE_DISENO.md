@@ -28,7 +28,7 @@ la plantilla, y que eso se pueda repetir.
 | **2. Familia** | Letras, densidad, tema y forma de la portada, según el **tipo de trabajo**. | Entre los sistemas de la misma familia |
 | **3. Firma** | Color propio, el vocabulario del rubro y un elemento que sólo tiene ese sistema. | Nunca |
 
-## Las once familias
+## Las familias (once + dos del 25/09)
 
 Ampliado el 25/09/2026 a pedido del dueño: «que no tengan todos layout
 izquierdo y contenido a la derecha». Cada familia cambia la **estructura** de
@@ -41,7 +41,7 @@ Cómo elegir: ¿qué hace todo el día quien lo usa? Administrar y decidir (A),
 atender personas con turnos (B), vigilar algo que se mueve (C), enseñar (D),
 tramitar (E), despachar pedidos en un mostrador (F), reparar en un taller
 (G), vender una experiencia (H), moverse en un territorio (I), medir (J) o
-preguntar sin aprender el sistema (K).
+preguntar sin aprender el sistema (K), seguir una cartera de proyectos que se mueven (L) o revisar pruebas (M).
 
 | | Familia | Estructura de la pantalla | Letras | Paleta | Firma | Estado |
 |---|---|---|---|---|---|---|
@@ -56,6 +56,8 @@ preguntar sin aprender el sistema (K).
 | I | **Carta** | Mapa a pantalla completa; buscador flotante arriba y hoja deslizable con la lista abajo | IBM Plex Sans Condensed · Martian Mono | `#EAF1EC` `#0E4D64` rutas `#E4572E` | Curvas de nivel; rutas punteadas | Nueva |
 | J | **Instrumento** | Cabecera de equipo con modos + banda de lecturas con tolerancia + un gráfico ancho | Red Hat Display · Red Hat Mono | `#F2F6F6` `#0F2A2E` `#00A3AD` fuera `#C8105A` | Franja de tolerancia con aguja bajo cada valor | Nueva |
 | K | **Diálogo** | Una columna angosta al centro: pregunta, respuesta con fuente y acciones; caja abajo | Literata · IBM Plex Mono | `#F7F7F4` `#1C1C1A` `#C4E83E` | Cada número dice de qué tabla y fecha sale | Nueva |
+| L | **Monitor** | Una pista por proyecto a todo el ancho, como un monitor de varios pacientes: la línea late con la actividad de 14 días y plana es parado; foco arriba y ficha al costado | Del sistema · monospaciada para rótulos | monitor `#101314` en los tres temas, trazos `#C4E83E` `#F5B84A` `#FF7A5C` | La línea de pulso que se aplana | **Piloto en Pulso (rama `piloto-monitor`, 25/09)** |
+| M | **Mesa de luz** | La evidencia primero, como una hoja de contactos: miniaturas con sello «aceptada / devuelta» y el hueco punteado de lo que falta; en el celular se desliza para aceptar o devolver | Del sistema · monospaciada para sellos | papel `#F3F1EC`, sellos `#2E7D32` `#B3261E` | Sello de goma torcido; hueco punteado de lo que falta | Nueva (pantalla de revisar de Pulso) |
 
 ### A · Encuadre — el detalle, porque es la que está construida
 - **Tema:** claro. Menú lateral oscuro (`#17191A`), con el activo marcado por un filete lima.
@@ -83,7 +85,7 @@ preguntar sin aprender el sistema (K).
 | Lab · Galénica | J Instrumento | C Sala de control |
 | Core | A Encuadre | K Diálogo (vista del dueño) |
 | Broker | A Encuadre | E Expediente |
-| Pulso | K Diálogo | B Consultorio |
+| Pulso | L Monitor (elegida por el dueño el 25/09; la pantalla de revisar evidencia va en M Mesa de luz) | K Diálogo (vista del dueño, cuando haya IA) |
 
 **Excepción permitida:** una pantalla operativa puede tomar otra familia
 dentro de un sistema (las fichadas de SINEP en C, la mesa de entradas de Gov
