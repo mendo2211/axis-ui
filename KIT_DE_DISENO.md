@@ -28,31 +28,72 @@ la plantilla, y que eso se pueda repetir.
 | **2. Familia** | Letras, densidad, tema y forma de la portada, según el **tipo de trabajo**. | Entre los sistemas de la misma familia |
 | **3. Firma** | Color propio, el vocabulario del rubro y un elemento que sólo tiene ese sistema. | Nunca |
 
-## Las tres familias
+## Las once familias
 
-El criterio para elegir: quien lo usa, ¿administra papeles y decide (A),
-atiende personas durante el día (B) o vigila algo que se mueve (C)?
+Ampliado el 25/09/2026 a pedido del dueño: «que no tengan todos layout
+izquierdo y contenido a la derecha». Cada familia cambia la **estructura** de
+la pantalla, no sólo los colores. **Sólo A usa menú lateral.** Maquetas de
+las once: artifact «Familias Marco» (https://claude.ai/artifact/V8LoGk3QBQaQrXNWDYdfeF).
+Primeras tres, con más detalle: «Caminos de diseño Marco»
+(https://claude.ai/artifact/KN1G9eGrq7Dem2EP5JKHNU).
 
-### A · Encuadre — hecha y probada (Marketing)
-- **Letras:** Bricolage Grotesque en los títulos, IBM Plex Sans para el texto, IBM Plex Mono para números y rótulos.
-- **Tema:** claro. Fondo `#F4F5F1`, tinta `#17191A`, filetes `#DADDD5`. Menú lateral oscuro (`#17191A`), con el activo marcado por un filete lima.
+Cómo elegir: ¿qué hace todo el día quien lo usa? Administrar y decidir (A),
+atender personas con turnos (B), vigilar algo que se mueve (C), enseñar (D),
+tramitar (E), despachar pedidos en un mostrador (F), reparar en un taller
+(G), vender una experiencia (H), moverse en un territorio (I), medir (J) o
+preguntar sin aprender el sistema (K).
+
+| | Familia | Estructura de la pantalla | Letras | Paleta | Firma | Estado |
+|---|---|---|---|---|---|---|
+| A | **Encuadre** | Menú lateral oscuro con el cliente como «casa»; un foco encuadrado | Bricolage Grotesque · IBM Plex Sans · IBM Plex Mono | `#F4F5F1` `#17191A` `#C4E83E` `#DADDD5` | Foco con dos escuadras y el número en lima | **En producción (Marketing)** |
+| B | **Consultorio** | Sin menú lateral: solapas arriba + tira de días; agenda y mensajes en dos columnas | Young Serif · IBM Plex Sans | `#E9F1EE` `#0F766E` `#1D2B28` | Turno actual «ahora»; mensajes en burbuja | Propuesta |
+| C | **Sala de control** | Sin menú: mosaico de paneles a pantalla completa + barra de comandos abajo | Archivo 800 · JetBrains Mono | `#16181C` `#1C1F24` `#F5A524` | Registro de eventos con hora | Propuesta |
+| D | **Cuaderno** | Doble página (clase / para hoy) + pestañas de colores en el borde derecho | Newsreader · Kalam (notas a mano) · IBM Plex Sans | `#FDFDFB` cuadriculado, `#1E2A3A`, `#2F5BB7`, resaltador `#FFE66D`, margen `#E0707A` | Margen rojo y resaltador amarillo | Nueva |
+| E | **Expediente** | Una columna ancha como una hoja; recorrido de pases arriba; acciones como notas al margen | Source Serif 4 · IBM Plex Mono | `#E9ECEF` `#FFFFFF` `#1B2A41` sello `#B3261E` | Sello circular de goma con el estado; número de foja | Nueva |
+| F | **Comanda** | Riel horizontal de tickets que se desliza + dock de 4 botones abajo (pantalla táctil) | Barlow Condensed · DM Mono | `#2B2D2F` `#FBFAF7` `#F2C14E` atrasado `#FFE9A8` | Borde dentado de papel térmico; minutos que corren | Nueva |
+| G | **Obra** | Solapas grandes arriba + tablero de columnas a todo el ancho + cinta de avisos abajo | Big Shoulders Stencil · Barlow | `#F2F0EA` `#111111` `#FFC700` | Cinta de peligro sobre lo trabado | Nueva |
+| H | **Revista** | Cabecera centrada con secciones debajo; el día como sumario con horas grandes + destacado | Gloock · Figtree | `#FFFFFF` `#3A1F3D` `#B25C74` `#F6E4E7` | Letra capital; horas en números de revista | Nueva |
+| I | **Carta** | Mapa a pantalla completa; buscador flotante arriba y hoja deslizable con la lista abajo | IBM Plex Sans Condensed · Martian Mono | `#EAF1EC` `#0E4D64` rutas `#E4572E` | Curvas de nivel; rutas punteadas | Nueva |
+| J | **Instrumento** | Cabecera de equipo con modos + banda de lecturas con tolerancia + un gráfico ancho | Red Hat Display · Red Hat Mono | `#F2F6F6` `#0F2A2E` `#00A3AD` fuera `#C8105A` | Franja de tolerancia con aguja bajo cada valor | Nueva |
+| K | **Diálogo** | Una columna angosta al centro: pregunta, respuesta con fuente y acciones; caja abajo | Literata · IBM Plex Mono | `#F7F7F4` `#1C1C1A` `#C4E83E` | Cada número dice de qué tabla y fecha sale | Nueva |
+
+### A · Encuadre — el detalle, porque es la que está construida
+- **Tema:** claro. Menú lateral oscuro (`#17191A`), con el activo marcado por un filete lima.
 - **Forma:** cada pantalla encuadra **una** cosa con las escuadras (`.foco`): lo que hay que hacer ahora. El resto va en filas densas (`.filas`), tiras de números (`.tira`) y tablas con filete. Esquinas de 3 px, sin sombras. El botón principal es tinta; el lima se reserva para el foco.
-- **Para:** Marketing, Core, Broker, Collection, Customs, Union, SINEP (legajos), Gov.
 
-### B · Consultorio — especificada, sin construir
-- **Letras:** Young Serif en los títulos, IBM Plex Sans para el texto.
-- **Tema:** claro y cálido (por ejemplo `#E9F1EE` con verde azulado `#0F766E` en Clinic). Superficies más redondeadas (10-14 px).
-- **Forma:** la portada es **el día**. En una columna la agenda (turno actual marcado «ahora»); en la otra, los mensajes para mandar, en burbujas.
-- **Para:** Clinic, Glow, Stay, School, Campus, Library, Pulso.
+### Qué familia le queda a cada sistema (propuesta; la decide el dueño)
 
-### C · Sala de control — especificada, sin construir
-- **Letras:** Archivo (títulos en mayúscula, peso 800) y JetBrains Mono.
-- **Tema:** oscuro (`#16181C`) con un color de alerta por sistema (ámbar `#F5A524` en Freight).
-- **Forma:** densa. Lo que pasa **en vivo** va al centro, como un registro de eventos con hora; indicadores con una mini curva; atajos de teclado visibles.
-- **Para:** Freight, Workshop, Table, Pharma, Lab, Galénica.
-- **Excepción permitida:** una pantalla operativa dentro de un sistema A (las fichadas de SINEP, la mesa de entradas de Gov) puede usar la familia C. El resto del sistema no cambia.
+| Sistema | Recomendada | Alternativa |
+|---|---|---|
+| Marketing | A Encuadre (hecha) | — |
+| Clinic | B Consultorio | H Revista |
+| Glow | H Revista | B Consultorio |
+| Stay | H Revista | I Carta |
+| School · Campus | D Cuaderno | B Consultorio |
+| Library | D Cuaderno | A Encuadre |
+| Gov | E Expediente | A Encuadre |
+| SINEP | A Encuadre (legajos) | E Expediente (trámites y licencias) |
+| Union | E Expediente | K Diálogo |
+| Customs | E Expediente | I Carta |
+| Table | F Comanda | C Sala de control |
+| Pharma | F Comanda (mostrador) | J Instrumento (lotes y vencimientos) |
+| Collection | K Diálogo | F Comanda |
+| Workshop | G Obra | F Comanda |
+| Freight | I Carta | C Sala de control (despacho) |
+| Lab · Galénica | J Instrumento | C Sala de control |
+| Core | A Encuadre | K Diálogo (vista del dueño) |
+| Broker | A Encuadre | E Expediente |
+| Pulso | K Diálogo | B Consultorio |
 
-Las maquetas de las tres están en el artifact «Caminos de diseño Marco» (https://claude.ai/artifact/KN1G9eGrq7Dem2EP5JKHNU).
+**Excepción permitida:** una pantalla operativa puede tomar otra familia
+dentro de un sistema (las fichadas de SINEP en C, la mesa de entradas de Gov
+en E). El resto del sistema no cambia.
+
+**Al construir una familia nueva por primera vez:** las piezas de A
+(`Encabezado`, `Tira`, `Panel`, `useEnVivo`, `tiempo.js`) sirven igual; lo que
+cambia es el armazón (`Layout.jsx`: solapas, dock, mapa, riel…) y los tokens.
+Hay que escribir su armazón como pieza reutilizable, porque el segundo
+sistema de la misma familia lo va a copiar.
 
 ## Prohibido por defecto
 
