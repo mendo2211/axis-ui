@@ -1,0 +1,594 @@
+<title>Familias Marco</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Young+Serif&family=Archivo:wght@500;800&family=JetBrains+Mono:wght@400;600&family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Kalam:wght@400;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Barlow+Condensed:wght@500;700&family=DM+Mono:wght@400;500&family=Big+Shoulders+Stencil+Display:wght@700;800&family=Barlow:wght@400;600&family=Gloock&family=Figtree:wght@400;600&family=IBM+Plex+Sans+Condensed:wght@400;600&family=Martian+Mono:wght@400;600&family=Red+Hat+Display:wght@500;800&family=Red+Hat+Mono:wght@400;500&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --fondo: #F4F5F1; --papel: #FFFFFF; --tinta: #17191A; --tinta-2: #50554F; --tinta-3: #676C66;
+  --linea: #DADDD5; --lima: #C4E83E; --oliva: #4D6600;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --fondo: #101112; --papel: #17191A; --tinta: #ECEEE8; --tinta-2: #A9AEA6; --tinta-3: #92978F; --linea: #2C2F31; --oliva: #C4E83E; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --fondo: #101112; --papel: #17191A; --tinta: #ECEEE8; --tinta-2: #A9AEA6; --tinta-3: #92978F; --linea: #2C2F31; --oliva: #C4E83E; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fondo); color: var(--tinta); font: 400 15px/1.55 "IBM Plex Sans", system-ui, sans-serif; }
+.pagina { max-width: 1180px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 80px; display: grid; gap: 64px; }
+h1, h2, h3 { font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif; letter-spacing: -0.025em; line-height: 1.08; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(34px, 5.4vw, 60px); font-weight: 800; }
+h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 700; }
+h3 { font-size: 26px; font-weight: 700; }
+p { margin: 0; max-width: 66ch; }
+.rotulo { font: 500 11.5px/1.3 "IBM Plex Mono", monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--tinta-3); }
+.bajada { font-size: 17px; color: var(--tinta-2); }
+a { color: var(--oliva); }
+:focus-visible { outline: 2px solid var(--oliva); outline-offset: 2px; }
+
+.portada { display: grid; gap: 18px; }
+.portada .marca { display: flex; align-items: center; gap: 12px; }
+.resaltado { background: var(--lima); color: #17191A; padding: 0 8px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+
+/* Mapa de estructuras: miniaturas esquemáticas de cada familia */
+.mapa { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+.mini { display: grid; gap: 8px; text-decoration: none; color: inherit; }
+.mini .caja { aspect-ratio: 4 / 3; border: 1.5px solid var(--tinta); background: var(--papel); position: relative; padding: 6px; display: grid; gap: 4px; max-width: 100%; }
+.mini .caja i { display: block; background: var(--linea); }
+.mini .caja i.t { background: var(--tinta); }
+.mini .caja i.l { background: var(--lima); }
+.mini b { font: 600 13px/1.2 "Bricolage Grotesque", sans-serif; }
+.mini span { font-size: 12px; color: var(--tinta-3); }
+.mini:hover .caja { outline: 3px solid var(--lima); }
+
+/* Ficha de familia */
+.familia { display: grid; gap: 22px; padding-top: 28px; border-top: 2px solid var(--tinta); }
+.cabeza { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; align-items: baseline; }
+.letra { font: 800 44px/1 "Bricolage Grotesque", sans-serif; grid-row: span 2; color: var(--tinta); }
+.estado { display: inline-block; margin-left: 10px; font: 500 11px "IBM Plex Mono", monospace; letter-spacing: .08em; text-transform: uppercase; padding: 2px 7px; border: 1px solid var(--tinta); vertical-align: middle; }
+.estado.hecha { background: var(--lima); color: #17191A; border-color: #17191A; }
+.cuerpo { display: grid; grid-template-columns: minmax(0, 330px) minmax(0, 1fr); gap: 28px; align-items: start; }
+@media (max-width: 900px) { .cuerpo { grid-template-columns: 1fr; } }
+dl { margin: 0; display: grid; gap: 10px; }
+dt { font: 500 11px "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--tinta-3); }
+dd { margin: 2px 0 0; font-size: 14.5px; }
+.muestras { display: flex; gap: 5px; margin-top: 4px; }
+.muestras i { width: 26px; height: 26px; display: block; border: 1px solid rgba(0,0,0,.18); }
+.lamina { overflow-x: auto; border: 1px solid var(--linea); background: var(--papel); }
+.lamina > div { min-width: 640px; }
+.pie { font-size: 13px; color: var(--tinta-3); margin-top: 8px; }
+
+/* ───── A · Encuadre (menú lateral: el único) ───── */
+.mA { display: grid; grid-template-columns: 150px 1fr; min-height: 360px; background: #F4F5F1; color: #17191A; font: 400 13px/1.45 "IBM Plex Sans", sans-serif; }
+.mA nav { background: #17191A; color: #AEB3A9; padding: 14px 12px; display: grid; align-content: start; gap: 6px; font-size: 12.5px; }
+.mA nav b { color: #fff; font: 700 14px "Bricolage Grotesque", sans-serif; margin-bottom: 10px; }
+.mA nav .on { color: #fff; box-shadow: inset 2px 0 0 #C4E83E; padding-left: 6px; }
+.mA main { padding: 16px 20px; display: grid; gap: 12px; align-content: start; }
+.mA .foco { position: relative; padding: 14px 16px; background: #fff; }
+.mA .foco::before, .mA .foco::after { content: ""; position: absolute; width: 14px; height: 14px; border: 2.5px solid #17191A; }
+.mA .foco::before { top: 0; left: 0; border-right: 0; border-bottom: 0; } .mA .foco::after { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+.mA .foco strong { font: 700 21px/1.15 "Bricolage Grotesque", sans-serif; display: block; margin-top: 4px; }
+.mA em { font-style: normal; background: #C4E83E; padding: 0 4px; }
+.mA .m { font: 500 10.5px "IBM Plex Mono", monospace; letter-spacing: .12em; text-transform: uppercase; color: #676C66; }
+.mA .fila { display: grid; grid-template-columns: 1fr 1fr 80px; padding: 7px 0; border-top: 1px solid #DADDD5; font-size: 12.5px; }
+.mA .fila span:last-child { text-align: right; font-family: "IBM Plex Mono", monospace; }
+
+/* ───── B · Consultorio (barra de días arriba, dos columnas) ───── */
+.mB { background: #E9F1EE; color: #1D2B28; font: 400 13px/1.5 "IBM Plex Sans", sans-serif; min-height: 360px; display: grid; grid-template-rows: auto auto 1fr; }
+.mB header { display: flex; justify-content: space-between; align-items: center; padding: 12px 18px; }
+.mB header b { font: 400 20px "Young Serif", Georgia, serif; }
+.mB header nav { display: flex; gap: 14px; font-size: 12.5px; color: #4E6560; }
+.mB header nav .on { color: #0F766E; font-weight: 600; border-bottom: 2px solid #0F766E; }
+.mB .dias { display: flex; gap: 6px; padding: 0 18px 12px; }
+.mB .dias span { padding: 6px 10px; border-radius: 10px; background: #fff; font-size: 12px; text-align: center; min-width: 54px; }
+.mB .dias span b { display: block; font: 400 17px "Young Serif", serif; }
+.mB .dias .hoy { background: #0F766E; color: #fff; }
+.mB .dos { display: grid; grid-template-columns: 1.25fr 1fr; gap: 14px; padding: 0 18px 18px; }
+.mB .agenda { background: #fff; border-radius: 14px; padding: 12px 14px; }
+.mB .turno { display: grid; grid-template-columns: 46px 1fr; gap: 8px; padding: 6px 0; border-top: 1px dashed #C9DAD5; font-size: 12.5px; }
+.mB .turno:first-of-type { border-top: 0; }
+.mB .turno .h { color: #0F766E; font-weight: 600; }
+.mB .ahora { background: #0F766E; color: #fff; border-radius: 6px; padding: 0 5px; font-size: 10.5px; margin-left: 5px; }
+.mB .cola { background: #0F766E; color: #E7F4F1; border-radius: 14px; padding: 12px 14px; display: grid; gap: 8px; align-content: start; }
+.mB .msj { background: rgba(255,255,255,.14); border-radius: 12px 12px 12px 3px; padding: 7px 9px; font-size: 12px; }
+.mB h4 { margin: 0 0 6px; font: 400 15px "Young Serif", serif; }
+
+/* ───── C · Sala de control (mosaico sin menú + barra de comandos) ───── */
+.mC { background: #16181C; color: #D6D9DE; font: 400 12.5px/1.45 "Archivo", sans-serif; min-height: 360px; display: grid; grid-template-rows: auto 1fr auto; }
+.mC .top { display: flex; justify-content: space-between; padding: 10px 14px; font: 400 11px "JetBrains Mono", monospace; color: #8A9099; border-bottom: 1px solid #2A2E35; }
+.mC .top b { font: 800 14px "Archivo", sans-serif; color: #fff; text-transform: uppercase; letter-spacing: .03em; }
+.mC .vivo { color: #F5A524; } .mC .vivo::before { content: "● "; }
+.mC .mosaico { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto 1fr; gap: 1px; background: #2A2E35; }
+.mC .mosaico > div { background: #1C1F24; padding: 10px 12px; }
+.mC small { display: block; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #8A9099; }
+.mC .n { font: 600 22px "JetBrains Mono", monospace; color: #fff; }
+.mC .log { grid-column: 1 / 3; font: 400 11px "JetBrains Mono", monospace; }
+.mC .log div { display: grid; grid-template-columns: 44px 1fr; padding: 2px 0; }
+.mC .log span:first-child { color: #6D737D; } .mC .al { color: #F5A524; } .mC .ok { color: #7BD389; }
+.mC .cmd { padding: 8px 14px; border-top: 1px solid #2A2E35; font: 400 11.5px "JetBrains Mono", monospace; color: #8A9099; display: flex; gap: 10px; }
+.mC .cmd kbd { border: 1px solid #3A3F47; padding: 0 5px; color: #D6D9DE; font: inherit; }
+
+/* ───── D · Cuaderno (doble página, pestañas en el borde) ───── */
+.mD { background: #DCE3EC; padding: 16px; min-height: 360px; font: 400 13px/1.5 "Newsreader", Georgia, serif; color: #1E2A3A; display: grid; grid-template-columns: 1fr 1fr 34px; }
+.mD .hoja { background-color: #FDFDFB; background-image: linear-gradient(#DDE6F0 1px, transparent 1px), linear-gradient(90deg, #DDE6F0 1px, transparent 1px); background-size: 16px 16px; padding: 14px 16px 14px 34px; position: relative; }
+.mD .hoja::before { content: ""; position: absolute; left: 24px; top: 0; bottom: 0; width: 1.5px; background: #E0707A; }
+.mD .hoja + .hoja { border-left: 1px solid #C9D2DE; box-shadow: inset 8px 0 10px -8px rgba(30,42,58,.25); }
+.mD h5 { margin: 0 0 8px; font: 600 19px "Newsreader", serif; }
+.mD .mano { font: 400 15px "Kalam", cursive; color: #2F5BB7; }
+.mD .res { background: linear-gradient(transparent 55%, #FFE66D 55%); }
+.mD .alumno { display: flex; justify-content: space-between; border-bottom: 1px dotted #B8C4D4; padding: 3px 0; }
+.mD .pest { display: grid; align-content: start; gap: 4px; padding-top: 10px; }
+.mD .pest span { writing-mode: vertical-rl; padding: 10px 4px; font: 600 11px "IBM Plex Sans", sans-serif; color: #1E2A3A; border-radius: 0 6px 6px 0; }
+
+/* ───── E · Expediente (una columna, recorrido arriba, notas al margen) ───── */
+.mE { background: #E9ECEF; color: #1B2A41; font: 400 13px/1.55 "Source Serif 4", Georgia, serif; min-height: 360px; padding: 16px 20px; display: grid; gap: 12px; }
+.mE .ruta { display: flex; align-items: center; gap: 0; font: 400 10.5px "IBM Plex Mono", monospace; color: #54627A; }
+.mE .ruta span { padding: 4px 8px; border: 1px solid #9AA6B8; background: #F5F6F8; }
+.mE .ruta span + span { border-left: 0; }
+.mE .ruta .aca { background: #1B2A41; color: #fff; border-color: #1B2A41; }
+.mE .doc { display: grid; grid-template-columns: 1fr 150px; gap: 16px; }
+.mE .hojaE { background: #fff; padding: 16px 18px; position: relative; border-top: 3px solid #1B2A41; }
+.mE .hojaE h5 { margin: 0; font: 600 18px "Source Serif 4", serif; }
+.mE .num { font: 400 11px "IBM Plex Mono", monospace; color: #54627A; }
+.mE .sello { position: absolute; right: 16px; top: 14px; width: 74px; height: 74px; border: 2.5px solid #B3261E; border-radius: 50%; color: #B3261E; display: grid; place-items: center; text-align: center; font: 600 9.5px/1.15 "IBM Plex Mono", monospace; transform: rotate(-12deg); letter-spacing: .06em; }
+.mE .margen { display: grid; gap: 8px; align-content: start; font-size: 12px; color: #54627A; }
+.mE .margen div { border-left: 2px solid #1B2A41; padding-left: 8px; }
+.mE .margen b { color: #1B2A41; display: block; }
+.mE .foja { font: 400 10.5px "IBM Plex Mono", monospace; color: #8A96A8; text-align: right; margin-top: 10px; }
+
+/* ───── F · Comanda (riel horizontal de tickets + dock abajo) ───── */
+.mF { background: #2B2D2F; color: #1D1D1B; min-height: 360px; display: grid; grid-template-rows: auto 1fr auto; font: 400 12.5px/1.4 "DM Mono", monospace; }
+.mF .riel { display: flex; justify-content: space-between; padding: 10px 14px; color: #E9E6DF; font: 700 15px "Barlow Condensed", sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.mF .riel span { color: #F2C14E; }
+.mF .tickets { display: flex; gap: 12px; padding: 4px 14px 16px; align-items: flex-start; }
+.mF .t { width: 150px; flex: none; background: #FBFAF7; padding: 10px 10px 14px; position: relative;
+  -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 12px 100%;
+  mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 12px 100%; }
+.mF .t h6 { margin: 0; font: 700 20px "Barlow Condensed", sans-serif; display: flex; justify-content: space-between; }
+.mF .t .min { font-size: 11px; color: #7A776F; border-bottom: 1px dashed #BDB8AD; padding-bottom: 5px; margin-bottom: 5px; }
+.mF .t.tarde { background: #FFE9A8; } .mF .t.tarde .min { color: #9A4B00; font-weight: 500; }
+.mF .dock { display: flex; justify-content: center; gap: 6px; padding: 8px; background: #1E2021; }
+.mF .dock span { padding: 7px 16px; color: #BDB8AD; font: 600 13px "Barlow Condensed", sans-serif; text-transform: uppercase; letter-spacing: .05em; }
+.mF .dock .on { background: #F2C14E; color: #1D1D1B; }
+
+/* ───── G · Obra (tablero a todo el ancho, solapas grandes arriba) ───── */
+.mG { background: #F2F0EA; color: #111; min-height: 360px; font: 400 12.5px/1.4 "Barlow", sans-serif; display: grid; grid-template-rows: auto 1fr auto; }
+.mG .sol { display: flex; background: #111; }
+.mG .sol span { padding: 10px 16px; color: #BBB; font: 800 16px "Big Shoulders Stencil Display", sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.mG .sol .on { background: #FFC700; color: #111; }
+.mG .tablero { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 12px; }
+.mG .col h6 { margin: 0 0 6px; font: 800 14px "Big Shoulders Stencil Display", sans-serif; letter-spacing: .08em; text-transform: uppercase; border-bottom: 3px solid #111; padding-bottom: 3px; }
+.mG .ot { background: #fff; border: 1.5px solid #111; padding: 7px 8px; margin-bottom: 7px; }
+.mG .ot b { font: 600 12.5px "Barlow", sans-serif; display: block; }
+.mG .ot .pat { font-size: 11px; color: #555; }
+.mG .ot.alerta { border-width: 0 1.5px 1.5px; padding-top: 12px; background: #fff linear-gradient(135deg, #FFC700 25%, #111 25% 50%, #FFC700 50% 75%, #111 75%) top / 14px 6px repeat-x; }
+.mG .ticker { background: #FFC700; font: 600 12px "Barlow", sans-serif; padding: 6px 12px; white-space: nowrap; overflow: hidden; }
+
+/* ───── H · Revista (cabecera centrada, sumario de números grandes) ───── */
+.mH { background: #FFFFFF; color: #3A1F3D; min-height: 360px; font: 400 13px/1.55 "Figtree", sans-serif; padding: 16px 26px; display: grid; gap: 12px; }
+.mH .cab { text-align: center; border-bottom: 1px solid #3A1F3D; padding-bottom: 8px; }
+.mH .cab b { font: 400 30px/1 "Gloock", serif; display: block; }
+.mH .cab nav { display: flex; justify-content: center; gap: 18px; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; margin-top: 6px; }
+.mH .sumario { display: grid; grid-template-columns: 1.2fr 1fr; gap: 22px; }
+.mH .item { display: grid; grid-template-columns: 64px 1fr; gap: 10px; padding: 8px 0; border-bottom: 1px solid #E8C9CF; align-items: baseline; }
+.mH .item .hora { font: 400 30px/1 "Gloock", serif; color: #B25C74; }
+.mH .item b { font: 600 14px "Figtree", sans-serif; display: block; }
+.mH .destacado { background: #F6E4E7; padding: 14px 16px; }
+.mH .destacado b { font: 400 22px/1.15 "Gloock", serif; display: block; margin: 4px 0 6px; }
+.mH .cap::first-letter { font: 400 44px/0.8 "Gloock", serif; float: left; margin: 4px 6px 0 0; color: #B25C74; }
+
+/* ───── I · Carta (mapa a pantalla completa con paneles flotantes) ───── */
+.mI { position: relative; min-height: 360px; background: #EAF1EC; font: 400 12.5px/1.4 "IBM Plex Sans Condensed", sans-serif; color: #0E2F3B; overflow: hidden; }
+.mI svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.mI .buscar { position: absolute; top: 12px; left: 12px; right: 12px; background: #fff; border: 1.5px solid #0E4D64; padding: 7px 10px; display: flex; justify-content: space-between; font-size: 12px; }
+.mI .buscar span:last-child { font: 400 11px "Martian Mono", monospace; color: #0E4D64; }
+.mI .hoja { position: absolute; left: 12px; right: 12px; bottom: 0; background: #fff; border: 1.5px solid #0E4D64; border-bottom: 0; padding: 6px 12px 10px; }
+.mI .asa { width: 36px; height: 4px; background: #9DB6BE; margin: 0 auto 6px; }
+.mI .viaje { display: grid; grid-template-columns: 14px 1fr auto; gap: 8px; padding: 4px 0; border-top: 1px solid #D6E3E6; align-items: center; }
+.mI .viaje i { width: 9px; height: 9px; border-radius: 50%; background: #E4572E; }
+.mI .viaje .c { font: 400 10.5px "Martian Mono", monospace; color: #3C6674; }
+
+/* ───── J · Instrumento (cabecera de equipo, banda de lecturas, un gráfico ancho) ───── */
+.mJ { background: #F2F6F6; color: #0F2A2E; min-height: 360px; font: 400 12.5px/1.4 "Red Hat Display", sans-serif; display: grid; grid-template-rows: auto auto 1fr; }
+.mJ .eq { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; background: #0F2A2E; color: #CFE3E4; font: 400 11px "Red Hat Mono", monospace; }
+.mJ .eq b { font: 800 14px "Red Hat Display", sans-serif; color: #fff; letter-spacing: .02em; }
+.mJ .eq nav span { padding: 3px 8px; } .mJ .eq nav .on { background: #00A3AD; color: #0F2A2E; }
+.mJ .banda { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid #B9CFD1; }
+.mJ .lect { padding: 10px 14px; border-right: 1px solid #B9CFD1; }
+.mJ .lect small { font: 400 10.5px "Red Hat Mono", monospace; color: #4B6D71; display: block; }
+.mJ .lect .v { font: 500 22px "Red Hat Mono", monospace; }
+.mJ .tol { height: 8px; background: #DCE8E9; position: relative; margin-top: 6px; }
+.mJ .tol::before { content: ""; position: absolute; left: 25%; right: 25%; top: 0; bottom: 0; background: #A6DDE0; }
+.mJ .tol i { position: absolute; top: -3px; width: 2px; height: 14px; background: #0F2A2E; }
+.mJ .tol.fuera i { background: #C8105A; }
+.mJ .fuera-t { color: #C8105A; }
+.mJ .grafico { padding: 10px 16px 14px; }
+
+/* ───── K · Diálogo (una sola pregunta al centro, respuestas en tiras) ───── */
+.mK { background: #F7F7F4; color: #1C1C1A; min-height: 360px; font: 400 13px/1.55 "Literata", Georgia, serif; display: grid; grid-template-rows: auto 1fr auto; }
+.mK .sup { display: flex; justify-content: space-between; padding: 10px 18px; font: 400 11px "IBM Plex Mono", monospace; color: #6B6B63; }
+.mK .centro { max-width: 520px; margin: 0 auto; width: 100%; padding: 10px 18px; display: grid; gap: 12px; align-content: center; }
+.mK .preg { font: 600 20px/1.3 "Literata", serif; }
+.mK .resp { border-left: 3px solid #1C1C1A; padding: 4px 0 4px 12px; }
+.mK .resp .fuente { font: 400 10.5px "IBM Plex Mono", monospace; color: #6B6B63; margin-top: 4px; }
+.mK .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.mK .chips span { font: 400 11.5px "IBM Plex Sans", sans-serif; border: 1px solid #1C1C1A; padding: 3px 9px; border-radius: 999px; }
+.mK .entrada { margin: 0 auto 14px; max-width: 520px; width: calc(100% - 36px); border: 1.5px solid #1C1C1A; background: #fff; padding: 9px 12px; font: 400 13px "IBM Plex Sans", sans-serif; color: #6B6B63; display: flex; justify-content: space-between; }
+
+/* Tabla de asignación */
+.tabla { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 640px; font-size: 14px; }
+th { text-align: left; font: 500 11px "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--tinta-3); padding: 10px; border-bottom: 2px solid var(--tinta); }
+td { padding: 10px; border-bottom: 1px solid var(--linea); vertical-align: top; }
+td b { font-family: "Bricolage Grotesque", sans-serif; }
+.chip { display: inline-block; font: 500 11.5px "IBM Plex Mono", monospace; border: 1px solid var(--tinta); padding: 1px 7px; margin: 2px 4px 2px 0; }
+.lista { display: grid; gap: 10px; padding: 0; margin: 0; list-style: none; }
+.lista li { display: grid; grid-template-columns: 26px 1fr; gap: 8px; }
+.lista li::before { content: "→"; font-family: "IBM Plex Mono", monospace; color: var(--oliva); }
+@media (prefers-reduced-motion: no-preference) { .mini .caja { transition: outline-color .15s; } }
+</style>
+
+<div class="pagina">
+
+  <header class="portada">
+    <div class="marca">
+      <svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 26 V14 H26"/><path d="M38 14 H50 V26"/><path d="M50 38 V50 H38"/><path d="M26 50 H14 V38"/></g><circle cx="32" cy="32" r="7.2" fill="#C4E83E"/><circle cx="32" cy="32" r="2.9" fill="#15181A"/></svg>
+      <span class="rotulo">Kit de Diseño Marco · catálogo de familias · 25/09/2026</span>
+    </div>
+    <h1>Once formas de armar una pantalla, y <span class="resaltado">sólo una</span> tiene el menú a la izquierda</h1>
+    <p class="bajada">Encuadre, la familia de Marketing, ya está en producción. Las otras diez cambian la estructura de la pantalla, no sólo los colores: barra de días, mosaico con comandos, cuaderno con pestañas, expediente con su recorrido, riel de comandas, tablero de obra, revista, mapa, instrumento y diálogo. Todas comparten el ADN Marco (las escuadras y el punto que late) y cada sistema elige la que se parece a su trabajo.</p>
+  </header>
+
+  <section style="display:grid; gap:18px" aria-labelledby="t-mapa">
+    <span class="rotulo">De un vistazo</span>
+    <h2 id="t-mapa">La estructura de cada familia</h2>
+    <nav class="mapa" aria-label="Familias">
+      <a class="mini" href="#fa"><div class="caja" style="grid-template-columns:24% 1fr"><i class="t"></i><div style="display:grid;gap:4px;grid-template-rows:auto 1fr"><i class="l" style="height:22px"></i><i></i></div></div><b>A · Encuadre</b><span>Menú lateral, un foco</span></a>
+      <a class="mini" href="#fb"><div class="caja" style="grid-template-rows:12% 16% 1fr"><i class="t"></i><i></i><div style="display:grid;gap:4px;grid-template-columns:1.2fr 1fr"><i></i><i class="t"></i></div></div><b>B · Consultorio</b><span>Días arriba, dos columnas</span></a>
+      <a class="mini" href="#fc"><div class="caja" style="grid-template-rows:10% 1fr 10%"><i class="t"></i><div style="display:grid;gap:3px;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1.4fr"><i></i><i></i><i class="l"></i><i style="grid-column:span 2"></i><i></i></div><i class="t"></i></div><b>C · Sala de control</b><span>Mosaico y barra de comandos</span></a>
+      <a class="mini" href="#fd"><div class="caja" style="grid-template-columns:1fr 1fr 10%"><i></i><i></i><div style="display:grid;gap:3px;align-content:start"><i class="l" style="height:18px"></i><i class="t" style="height:18px"></i><i style="height:18px"></i></div></div><b>D · Cuaderno</b><span>Doble página, pestañas al borde</span></a>
+      <a class="mini" href="#fe"><div class="caja" style="grid-template-rows:12% 1fr"><div style="display:grid;gap:2px;grid-template-columns:repeat(5,1fr)"><i></i><i></i><i></i><i class="t"></i><i></i></div><div style="display:grid;gap:4px;grid-template-columns:1fr 26%"><i></i><div style="display:grid;gap:3px;align-content:start"><i class="t" style="height:10px"></i><i style="height:10px"></i></div></div></div><b>E · Expediente</b><span>Recorrido arriba, notas al margen</span></a>
+      <a class="mini" href="#ff"><div class="caja" style="grid-template-rows:1fr 14%"><div style="display:grid;gap:4px;grid-template-columns:repeat(4,1fr);align-items:start"><i style="height:70%"></i><i class="l" style="height:90%"></i><i style="height:55%"></i><i style="height:75%"></i></div><i class="t"></i></div><b>F · Comanda</b><span>Riel de tickets, dock abajo</span></a>
+      <a class="mini" href="#fg"><div class="caja" style="grid-template-rows:14% 1fr 8%"><i class="t"></i><div style="display:grid;gap:4px;grid-template-columns:repeat(4,1fr)"><i></i><i></i><i></i><i></i></div><i class="l"></i></div><b>G · Obra</b><span>Tablero a todo el ancho</span></a>
+      <a class="mini" href="#fh"><div class="caja" style="grid-template-rows:20% 1fr"><i class="t" style="width:50%;justify-self:center"></i><div style="display:grid;gap:6px;grid-template-columns:1.2fr 1fr"><div style="display:grid;gap:3px"><i></i><i></i><i></i></div><i class="l"></i></div></div><b>H · Revista</b><span>Cabecera centrada, sumario</span></a>
+      <a class="mini" href="#fi"><div class="caja" style="background:repeating-radial-gradient(circle at 40% 45%, var(--linea) 0 1px, transparent 1px 9px);grid-template-rows:14% 1fr 34%"><i class="t" style="opacity:.9"></i><span></span><i class="t"></i></div><b>I · Carta</b><span>Mapa entero, paneles encima</span></a>
+      <a class="mini" href="#fj"><div class="caja" style="grid-template-rows:12% 22% 1fr"><i class="t"></i><div style="display:grid;gap:2px;grid-template-columns:repeat(4,1fr)"><i></i><i></i><i class="l"></i><i></i></div><i></i></div><b>J · Instrumento</b><span>Banda de lecturas, un gráfico</span></a>
+      <a class="mini" href="#fk"><div class="caja" style="grid-template-rows:1fr 16%;justify-items:center"><div style="display:grid;gap:4px;width:64%;align-content:center"><i class="t" style="height:10px"></i><i style="height:22px"></i><i style="height:16px"></i></div><i class="t" style="width:70%"></i></div><b>K · Diálogo</b><span>Una pregunta al centro</span></a>
+    </nav>
+  </section>
+
+  <!-- A -->
+  <article class="familia" id="fa">
+    <div class="cabeza"><span class="letra">A</span><h3>Encuadre <span class="estado hecha">en producción</span></h3><p>Para quien administra y decide. Cada pantalla encuadra una sola tarea; el resto es información densa y sobria.</p></div>
+    <div class="cuerpo">
+      <dl>
+        <div><dt>Estructura</dt><dd>Menú lateral oscuro con el cliente como «casa». Es la única familia con menú a la izquierda.</dd></div>
+        <div><dt>Letras</dt><dd>Bricolage Grotesque · IBM Plex Sans · IBM Plex Mono</dd></div>
+        <div><dt>Paleta</dt><dd><div class="muestras"><i style="background:#F4F5F1"></i><i style="background:#17191A"></i><i style="background:#C4E83E"></i><i style="background:#DADDD5"></i></div></dd></div>
+        <div><dt>Firma</dt><dd>El foco con las dos escuadras y el número resaltado en lima.</dd></div>
+        <div><dt>Vivo</dt><dd>Realtime: la fila se mueve cuando otro del equipo escribe.</dd></div>
+        <div><dt>Para</dt><dd>Marketing, Core, Broker, Collection, SINEP (legajos)</dd></div>
+      </dl>
+      <div><div class="lamina"><div class="mA" role="img" aria-label="Maqueta de Encuadre: Inicio de Marketing">
+        <nav><b>Sonríe Pilar</b><span class="on">Inicio</span><span>Oportunidades</span><span>Contactos</span><span>Embudo</span><span>Campañas</span></nav>
+        <main>
+          <div class="m">Jueves 24 de septiembre · en vivo</div>
+          <div class="foco"><div class="m">Ahora · esta tarde</div><strong>Escribile a <em>11 personas</em> que consultaron y no sacaron turno</strong></div>
+          <div><div class="fila"><span>Lucía Gómez</span><span>implantes</span><span>WhatsApp →</span></div><div class="fila"><span>Martín Díaz</span><span>ortodoncia</span><span>WhatsApp →</span></div><div class="fila"><span>Sofía López</span><span>turno mañana</span><span>WhatsApp →</span></div></div>
+        </main>
+      </div></div><p class="pie">Es el sistema real: marketing.solucionesmarco.com.</p></div>
+    </div>
+  </article>
+
+  <!-- B -->
+  <article class="familia" id="fb">
+    <div class="cabeza"><span class="letra">B</span><h3>Consultorio <span class="estado">propuesta</span></h3><p>Para quien atiende personas todo el día. La pantalla es el día: la agenda de un lado, los mensajes para mandar del otro.</p></div>
+    <div class="cuerpo">
+      <dl>
+        <div><dt>Estructura</dt><dd>Sin menú lateral. Arriba, las secciones como solapas y una tira de días; se elige el día con el pulgar o las flechas.</dd></div>
+        <div><dt>Letras</dt><dd>Young Serif · IBM Plex Sans</dd></div>
+        <div><dt>Paleta</dt><dd><div class="muestras"><i style="background:#E9F1EE"></i><i style="background:#0F766E"></i><i style="background:#1D2B28"></i><i style="background:#FFFFFF"></i></div></dd></div>
+        <div><dt>Firma</dt><dd>El turno de este momento marcado «ahora»; los mensajes con forma de burbuja.</dd></div>
+        <div><dt>Vivo</dt><dd>La agenda avanza sola con la hora; cuando alguien cancela, el hueco aparece.</dd></div>
+        <div><dt>Para</dt><dd>Clinic, Glow, Stay, Pulso</dd></div>
+      </dl>
+      <div><div class="lamina"><div class="mB" role="img" aria-label="Maqueta de Consultorio: agenda del día en Clinic">
+        <header><b>Consultorio Norte</b><nav><span class="on">Hoy</span><span>Pacientes</span><span>Cobros</span><span>Ajustes</span></nav></header>
+        <div class="dias"><span>mié<b>23</b></span><span class="hoy">jue<b>24</b></span><span>vie<b>25</b></span><span>sáb<b>26</b></span><span>lun<b>28</b></span></div>
+        <div class="dos">
+          <div class="agenda"><h4>Turnos de hoy · 9</h4>
+            <div class="turno"><span class="h">10:00</span><span>Ana Ruiz · control<span class="ahora">ahora</span></span></div>
+            <div class="turno"><span class="h">10:30</span><span>Pablo Sosa · limpieza</span></div>
+            <div class="turno"><span class="h">11:15</span><span>Hueco libre · ofrecer a la lista de espera</span></div>
+            <div class="turno"><span class="h">12:00</span><span>Laura Gil · primera consulta</span></div></div>
+          <div class="cola"><h4 style="color:#fff">Para mandar · 3</h4>
+            <div class="msj"><b>Pablo</b>, te esperamos 10:30. ¿Venís?</div>
+            <div class="msj"><b>Lista de espera</b>: se liberó 11:15</div>
+            <div class="msj"><b>Laura</b>, te mandamos la ficha para completar</div></div>
+        </div>
+      </div></div></div>
+    </div>
+  </article>
+
+  <!-- C -->
+  <article class="familia" id="fc">
+    <div class="cabeza"><span class="letra">C</span><h3>Sala de control <span class="estado">propuesta</span></h3><p>Para quien vigila algo que se mueve. Lo que pasa en vivo va al centro; todo se opera con el teclado.</p></div>
+    <div class="cuerpo">
+      <dl>
+        <div><dt>Estructura</dt><dd>Sin menú. Un mosaico de paneles que llena la pantalla y una barra de comandos abajo (<kbd>/</kbd> para buscar, letras para ir).</dd></div>
+        <div><dt>Letras</dt><dd>Archivo · JetBrains Mono</dd></div>
+        <div><dt>Paleta</dt><dd><div class="muestras"><i style="background:#16181C"></i><i style="background:#1C1F24"></i><i style="background:#F5A524"></i><i style="background:#7BD389"></i></div></dd></div>
+        <div><dt>Firma</dt><dd>El registro de eventos con hora, que corre solo.</dd></div>
+        <div><dt>Vivo</dt><dd>Todo el tiempo: es su razón de ser.</dd></div>
+        <div><dt>Para</dt><dd>Freight (despacho), la mesa operativa de Customs</dd></div>
+      </dl>
+      <div><div class="lamina"><div class="mC" role="img" aria-label="Maqueta de Sala de control: despacho de Freight">
+        <div class="top"><b>Despacho</b><span class="vivo">en vivo · 14:32</span></div>
+        <div class="mosaico">
+          <div><small>en ruta</small><span class="n">23</span></div><div><small>entregados hoy</small><span class="n">41</span></div><div><small>demorados</small><span class="n" style="color:#F5A524">3</span></div>
+          <div class="log"><small>eventos</small>
+            <div><span>14:31</span><span class="ok">OT-2231 entregado · Pilar</span></div>
+            <div><span>14:29</span><span class="al">OT-2219 demora 40 min · RN8</span></div>
+            <div><span>14:27</span><span>OT-2240 salió de depósito</span></div>
+            <div><span>14:22</span><span class="ok">OT-2208 firmado por el cliente</span></div></div>
+          <div><small>choferes</small><div style="font:400 11px 'JetBrains Mono',monospace;margin-top:4px">12 activos<br>2 en pausa</div></div>
+        </div>
+        <div class="cmd"><span><kbd>/</kbd> buscar</span><span><kbd>d</kbd> demorados</span><span><kbd>n</kbd> nueva orden</span></div>
+      </div></div></div>
+    </div>
+  </article>
+
+  <!-- D -->
+  <article class="familia" id="fd">
+    <div class="cabeza"><span class="letra">D</span><h3>Cuaderno <span class="estado">nueva</span></h3><p>Para quien enseña o estudia. El sistema se abre como una carpeta: hoja cuadriculada, anotaciones a mano y pestañas de colores.</p></div>
+    <div class="cuerpo">
+      <dl>
+        <div><dt>Estructura</dt><dd>Doble página: a la izquierda el curso o la clase, a la derecha lo que hay que hacer. Las secciones son pestañas en el borde derecho, como un cuaderno con separadores.</dd></div>
+        <div><dt>Letras</dt><dd>Newsreader para leer, Kalam para las notas «a mano», IBM Plex Sans en las pestañas</dd></div>
+        <div><dt>Paleta</dt><dd><div class="muestras"><i style="background:#FDFDFB"></i><i style="background:#1E2A3A"></i><i style="background:#2F5BB7"></i><i style="background:#FFE66D"></i><i style="background:#E0707A"></i></div></dd></div>
+        <div><dt>Firma</dt><dd>El margen rojo del cuaderno y el resaltador amarillo para lo urgente.</dd></div>
+        <div><dt>Vivo</dt><dd>El presente se marca al tocar; la nota del docente aparece escrita a mano en la hoja del alumno.</dd></div>
+        <div><dt>Para</dt><dd>School, Campus, Library</dd></div>
+      </dl>
+      <div><div class="lamina"><div class="mD" role="img" aria-label="Maqueta de Cuaderno: clase del día en School">
+        <div class="hoja"><h5>3º B · Matemática</h5><div style="font-size:12px;color:#54627A;margin-bottom:6px">Jueves 24 · 2º módulo · 26 alumnos</div>
+          <div class="alumno"><span>Acosta, Julián</span><span>presente</span></div><div class="alumno"><span>Benítez, Mora</span><span class="res">tarde</span></div><div class="alumno"><span>Castro, Leo</span><span>presente</span></div><div class="alumno"><span>Díaz, Emma</span><span class="res">ausente · 3ª vez</span></div></div>
+        <div class="hoja"><h5>Para hoy</h5><p style="margin-bottom:8px"><span class="res">Llamar a la familia de Emma Díaz</span>: tercera falta del mes.</p><p>Corregir 12 trabajos de fracciones.</p><p class="mano" style="margin-top:10px">¡Muy buen avance del grupo en ecuaciones! — Prof. Ríos</p></div>
+        <div class="pest"><span style="background:#FFE66D">Hoy</span><span style="background:#BFD7F5">Cursos</span><span style="background:#F3C4C8">Notas</span><span style="background:#CDE8C9">Familias</span></div>
+      </div></div></div>
+    </div>
+  </article>
+
+  <!-- E -->
+  <article class="familia" id="fe">
+    <div class="cabeza"><span class="letra">E</span><h3>Expediente <span class="estado">nueva</span></h3><p>Para la administración pública y los gremios. Cada pantalla es un documento, con su número, sus fojas y el recorrido que hizo.</p></div>
+    <div class="cuerpo">
+      <dl>
+        <div><dt>Estructura</dt><dd>Una sola columna ancha, como una hoja. Arriba, el recorrido de pases como una tira; al margen derecho, las acciones y notas como anotaciones. Sin menú: se navega por el recorrido y por un buscador.</dd></div>
+        <div><dt>Letras</dt><dd>Source Serif 4 · IBM Plex Mono para números de expediente y fojas</dd></div>
+        <div><dt>Paleta</dt><dd><div class="muestras"><i style="background:#E9ECEF"></i><i style="background:#FFFFFF"></i><i style="background:#1B2A41"></i><i style="background:#B3261E"></i></div></dd></div>
+        <div><dt>Firma</dt><dd>El sello circular del estado (EN TRÁMITE, RESUELTO), girado como uno de goma.</dd></div>
+        <div><dt>Vivo</dt><dd>El pase aparece en la tira cuando otra área lo recibe.</dd></div>
+        <div><dt>Para</dt><dd>Gov, SINEP (trámites), Union, Customs (legajos de importación)</dd></div>
+      </dl>
+      <div><div class="lamina"><div class="mE" role="img" aria-label="Maqueta de Expediente: trámite en Gov">
+        <div class="ruta"><span>Mesa de entradas</span><span>Legales</span><span>Presupuesto</span><span class="aca">RR. HH. · acá</span><span>Firma</span></div>
+        <div class="doc">
+          <div class="hojaE"><div class="num">EX-2026-00123-APN-DRH#MC</div><h5>Licencia por estudio · Gómez, Ana</h5>
+            <p style="margin-top:8px;max-width:48ch">Solicita 10 días hábiles por examen final. Adjunta constancia de la universidad (foja 3).</p>
+            <p style="margin-top:6px;max-width:48ch">Falta el informe de la jefatura para seguir.</p>
+            <div class="sello">EN<br>TRÁMITE<br>DÍA 4</div>
+            <div class="foja">foja 4 de 4</div></div>
+          <div class="margen"><div><b>Pedir el informe</b>a la jefatura de Ana Gómez</div><div><b>Vence</b>en 6 días hábiles</div><div><b>Pase</b>recibido hace 2 h</div></div>
+        </div>
+      </div></div></div>
+    </div>
+  </article>
+
+  <!-- F -->
+  <article class="familia" id="ff">
+    <div class="cabeza"><span class="letra">F</span><h3>Comanda <span class="estado">nueva</span></h3><p>Para el mostrador y la cocina. Los pedidos son tickets colgados en un riel; se mueven con el dedo y el que se atrasa se pone amarillo.</p></div>
+    <div class="cuerpo">
+      <dl>
+        <div><dt>Estructura</dt><dd>Un riel horizontal de tickets que se desliza de costado. Abajo, un dock de cuatro botones grandes para cambiar de vista. Pensada para pantalla táctil parada.</dd></div>
+        <div><dt>Letras</dt><dd>Barlow Condensed para números de mesa · DM Mono para el detalle, como una impresora térmica</dd></div>
+        <div><dt>Paleta</dt><dd><div class="muestras"><i style="background:#2B2D2F"></i><i style="background:#FBFAF7"></i><i style="background:#F2C14E"></i><i style="background:#FFE9A8"></i></div></dd></div>
+        <div><dt>Firma</dt><dd>El borde dentado del ticket, cortado como papel térmico.</dd></div>
+        <div><dt>Vivo</dt><dd>Los minutos de cada ticket corren; al pasar el tiempo de la cocina, el ticket cambia de color.</dd></div>
+        <div><dt>Para</dt><dd>Table, el mostrador de Pharma, la caja de Collection</dd></div>
+      </dl>
+      <div><div class="lamina"><div class="mF" role="img" aria-label="Maqueta de Comanda: cocina de Table">
+        <div class="riel">Cocina · 7 en marcha <span>1 atrasada</span></div>
+        <div class="tickets">
+          <div class="t tarde"><h6>Mesa 4 <span>2p</span></h6><div class="min">hace 24 min · atrasada</div>1 milanesa napo<br>1 ensalada mixta<br>2 agua sin gas</div>
+          <div class="t"><h6>Mesa 9 <span>4p</span></h6><div class="min">hace 11 min</div>2 bife de chorizo<br>· a punto<br>1 papas fritas<br>1 provoleta</div>
+          <div class="t"><h6>Barra 2 <span>1p</span></h6><div class="min">hace 6 min</div>1 tostado J y Q<br>1 café con leche</div>
+          <div class="t"><h6>Mesa 12 <span>3p</span></h6><div class="min">recién</div>3 pastas del día<br>1 flan casero</div>
+        </div>
+        <div class="dock"><span class="on">Cocina</span><span>Salón</span><span>Caja</span><span>Stock</span></div>
+      </div></div></div>
+    </div>
+  </article>
+
+  <!-- G -->
+  <article class="familia" id="fg">
+    <div class="cabeza"><span class="letra">G</span><h3>Obra <span class="estado">nueva</span></h3><p>Para el taller. Las órdenes de trabajo son fichas en un tablero a todo el ancho; lo trabado lleva cinta de peligro.</p></div>
+    <div class="cuerpo">
+      <dl>
+        <div><dt>Estructura</dt><dd>Solapas grandes arriba, en negro, y un tablero de columnas por estado a todo el ancho. Abajo, una cinta que avisa lo urgente. Se lee de lejos, desde el taller.</dd></div>
+        <div><dt>Letras</dt><dd>Big Shoulders Stencil (como pintado con plantilla) · Barlow</dd></div>
+        <div><dt>Paleta</dt><dd><div class="muestras"><i style="background:#F2F0EA"></i><i style="background:#111111"></i><i style="background:#FFC700"></i><i style="background:#FFFFFF"></i></div></dd></div>
+        <div><dt>Firma</dt><dd>La cinta de peligro amarilla y negra sobre la orden trabada.</dd></div>
+        <div><dt>Vivo</dt><dd>La ficha cambia de columna cuando el mecánico la mueve desde el celular.</dd></div>
+        <div><dt>Para</dt><dd>Workshop, el taller de Freight</dd></div>
+      </dl>
+      <div><div class="lamina"><div class="mG" role="img" aria-label="Maqueta de Obra: tablero de Workshop">
+        <div class="sol"><span class="on">Tablero</span><span>Turnos</span><span>Repuestos</span><span>Caja</span></div>
+        <div class="tablero">
+          <div class="col"><h6>Entró · 3</h6><div class="ot"><b>Gol Trend</b><span class="pat">AB 123 CD · ruido tren delantero</span></div><div class="ot"><b>Hilux</b><span class="pat">AE 551 KL · service 60 mil</span></div></div>
+          <div class="col"><h6>Diagnóstico · 2</h6><div class="ot alerta"><b>Kangoo</b><span class="pat">AC 908 PQ · espera repuesto: bomba de agua</span></div></div>
+          <div class="col"><h6>En el elevador · 2</h6><div class="ot"><b>Corolla</b><span class="pat">AD 402 ZX · frenos · Rubén</span></div><div class="ot"><b>Ranger</b><span class="pat">AF 117 MN · embrague · Tito</span></div></div>
+          <div class="col"><h6>Listo · 4</h6><div class="ot"><b>Onix</b><span class="pat">AG 330 RS · avisar al cliente</span></div></div>
+        </div>
+        <div class="ticker">⚠ Kangoo AC 908 PQ espera repuesto hace 2 días · El cliente del Onix no contestó</div>
+      </div></div></div>
+    </div>
+  </article>
+
+  <!-- H -->
+  <article class="familia" id="fh">
+    <div class="cabeza"><span class="letra">H</span><h3>Revista <span class="estado">nueva</span></h3><p>Para marcas que venden experiencias. El día se lee como el sumario de una revista: la hora en números grandes y un destacado.</p></div>
+    <div class="cuerpo">
+      <dl>
+        <div><dt>Estructura</dt><dd>Cabecera centrada con el nombre de la marca y las secciones debajo, como una revista. El contenido baja en una sola lectura, con un destacado al costado. Sin menú lateral.</dd></div>
+        <div><dt>Letras</dt><dd>Gloock en los títulos y las horas · Figtree para leer</dd></div>
+        <div><dt>Paleta</dt><dd><div class="muestras"><i style="background:#FFFFFF"></i><i style="background:#3A1F3D"></i><i style="background:#B25C74"></i><i style="background:#F6E4E7"></i></div></dd></div>
+        <div><dt>Firma</dt><dd>La letra capital grande al comenzar un texto y las horas del día en números de revista.</dd></div>
+        <div><dt>Vivo</dt><dd>El destacado cambia con el momento del día: la clienta que llega, el hueco que se liberó.</dd></div>
+        <div><dt>Para</dt><dd>Glow, Stay, solucionesmarco (el sitio)</dd></div>
+      </dl>
+      <div><div class="lamina"><div class="mH" role="img" aria-label="Maqueta de Revista: el día en Glow">
+        <div class="cab"><b>Estudio Alma</b><nav><span>Hoy</span><span>Clientas</span><span>Tratamientos</span><span>Caja</span></nav></div>
+        <div class="sumario">
+          <div>
+            <div class="item"><span class="hora">10</span><span><b>Valentina · limpieza facial</b>Cabina 1 · primera vez, le gusta el té verde</span></div>
+            <div class="item"><span class="hora">11</span><span><b>Rocío · lifting de pestañas</b>Cabina 2 · viene cada 6 semanas</span></div>
+            <div class="item"><span class="hora">13</span><span><b>Hueco libre</b>Ofrecerlo a las 4 de la lista de espera</span></div>
+          </div>
+          <div class="destacado"><span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase">Llega ahora</span><b>Valentina, primera visita</b><p class="cap">Pidió turno por Instagram después del sorteo de agosto. Ofrecele la tarjeta de puntos al final.</p></div>
+        </div>
+      </div></div></div>
+    </div>
+  </article>
+
+  <!-- I -->
+  <article class="familia" id="fi">
+    <div class="cabeza"><span class="letra">I</span><h3>Carta <span class="estado">nueva</span></h3><p>Para lo que pasa en un territorio. El mapa es la pantalla; la lista aparece encima como una hoja que se estira.</p></div>
+    <div class="cuerpo">
+      <dl>
+        <div><dt>Estructura</dt><dd>Mapa a pantalla completa. Arriba, un buscador flotante; abajo, una hoja deslizable con la lista, que en el celular se sube con el pulgar. No hay menú: las secciones son capas del mapa.</dd></div>
+        <div><dt>Letras</dt><dd>IBM Plex Sans Condensed · Martian Mono para coordenadas y códigos</dd></div>
+        <div><dt>Paleta</dt><dd><div class="muestras"><i style="background:#EAF1EC"></i><i style="background:#0E4D64"></i><i style="background:#E4572E"></i><i style="background:#9DB6BE"></i></div></dd></div>
+        <div><dt>Firma</dt><dd>Las curvas de nivel de fondo y las rutas en naranja.</dd></div>
+        <div><dt>Vivo</dt><dd>Los puntos se mueven con la posición del vehículo o del huésped que hace check-in.</dd></div>
+        <div><dt>Para</dt><dd>Freight (rutas), Customs (puertos y depósitos), Stay (varias propiedades)</dd></div>
+      </dl>
+      <div><div class="lamina"><div class="mI" role="img" aria-label="Maqueta de Carta: rutas de Freight">
+        <svg viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <g fill="none" stroke="#C5D8CC" stroke-width="1">
+            <ellipse cx="300" cy="170" rx="260" ry="150"/><ellipse cx="300" cy="170" rx="210" ry="118"/><ellipse cx="300" cy="170" rx="160" ry="88"/><ellipse cx="300" cy="170" rx="110" ry="60"/><ellipse cx="300" cy="170" rx="60" ry="32"/>
+            <ellipse cx="540" cy="90" rx="90" ry="60"/><ellipse cx="540" cy="90" rx="50" ry="32"/>
+          </g>
+          <path d="M 70 250 C 160 230, 200 150, 300 160 S 470 110, 560 80" fill="none" stroke="#E4572E" stroke-width="3" stroke-dasharray="7 5"/>
+          <circle cx="70" cy="250" r="6" fill="#0E4D64"/><circle cx="300" cy="160" r="7" fill="#E4572E" stroke="#fff" stroke-width="2"/><circle cx="560" cy="80" r="6" fill="#0E4D64"/>
+        </svg>
+        <div class="buscar"><span>Buscar orden, chofer o dirección</span><span>34°27′S 58°54′O</span></div>
+        <div class="hoja"><div class="asa"></div>
+          <div class="viaje"><i></i><span><b>OT-2219</b> · Pilar → Luján · demora 40 min</span><span class="c">km 47 RN8</span></div>
+          <div class="viaje"><i style="background:#0E4D64"></i><span><b>OT-2240</b> · Depósito → Escobar</span><span class="c">salió 14:27</span></div></div>
+      </div></div></div>
+    </div>
+  </article>
+
+  <!-- J -->
+  <article class="familia" id="fj">
+    <div class="cabeza"><span class="letra">J</span><h3>Instrumento <span class="estado">nueva</span></h3><p>Para laboratorios y producción. La pantalla se lee como un equipo de medición: cada valor con su tolerancia y el que se sale, marcado.</p></div>
+    <div class="cuerpo">
+      <dl>
+        <div><dt>Estructura</dt><dd>Cabecera de equipo con las secciones como botones de modo. Debajo, una banda de lecturas con su franja de tolerancia, y un solo gráfico ancho con la tendencia. Sin tarjetas.</dd></div>
+        <div><dt>Letras</dt><dd>Red Hat Display · Red Hat Mono para las lecturas</dd></div>
+        <div><dt>Paleta</dt><dd><div class="muestras"><i style="background:#F2F6F6"></i><i style="background:#0F2A2E"></i><i style="background:#00A3AD"></i><i style="background:#C8105A"></i></div></dd></div>
+        <div><dt>Firma</dt><dd>La franja de tolerancia debajo de cada número, con la aguja de la lectura.</dd></div>
+        <div><dt>Vivo</dt><dd>La lectura se mueve cuando entra un resultado; si sale de tolerancia, el lote se frena solo.</dd></div>
+        <div><dt>Para</dt><dd>Lab, Galénica, Pharma (control de calidad)</dd></div>
+      </dl>
+      <div><div class="lamina"><div class="mJ" role="img" aria-label="Maqueta de Instrumento: control de lote en Galénica">
+        <div class="eq"><b>LOTE 26-0917 · Crema base</b><nav><span class="on">Control</span><span>Lotes</span><span>Fórmulas</span><span>Certificados</span></nav></div>
+        <div class="banda">
+          <div class="lect"><small>pH</small><span class="v">5,6</span><div class="tol"><i style="left:48%"></i></div></div>
+          <div class="lect"><small>viscosidad cP</small><span class="v">12.400</span><div class="tol"><i style="left:55%"></i></div></div>
+          <div class="lect"><small>temperatura °C</small><span class="v fuera-t">31,8</span><div class="tol fuera"><i style="left:84%"></i></div></div>
+          <div class="lect"><small>densidad g/ml</small><span class="v">0,98</span><div class="tol"><i style="left:40%"></i></div></div>
+        </div>
+        <div class="grafico">
+          <div style="font:400 10.5px 'Red Hat Mono',monospace;color:#4B6D71;margin-bottom:4px">temperatura · últimas 2 h · tolerancia 22-28 °C</div>
+          <svg viewBox="0 0 600 120" width="100%" height="120" aria-hidden="true">
+            <rect x="0" y="40" width="600" height="40" fill="#A6DDE0" opacity=".55"/>
+            <line x1="0" y1="40" x2="600" y2="40" stroke="#6FB9BE" stroke-dasharray="3 3"/><line x1="0" y1="80" x2="600" y2="80" stroke="#6FB9BE" stroke-dasharray="3 3"/>
+            <polyline fill="none" stroke="#0F2A2E" stroke-width="2" points="0,62 60,60 120,64 180,58 240,61 300,56 360,52 420,44 480,34 540,22 600,16"/>
+            <circle cx="600" cy="16" r="5" fill="#C8105A"/>
+          </svg>
+        </div>
+      </div></div></div>
+    </div>
+  </article>
+
+  <!-- K -->
+  <article class="familia" id="fk">
+    <div class="cabeza"><span class="letra">K</span><h3>Diálogo <span class="estado">nueva</span></h3><p>Para quien no quiere aprender un sistema. Se le pregunta como a una persona y responde con datos, citando de dónde salen.</p></div>
+    <div class="cuerpo">
+      <dl>
+        <div><dt>Estructura</dt><dd>Una sola columna angosta al centro. Arriba, la pregunta; debajo, la respuesta y las acciones posibles; abajo, la caja para preguntar otra cosa. Las pantallas clásicas quedan detrás, para cuando hacen falta.</dd></div>
+        <div><dt>Letras</dt><dd>Literata para leer · IBM Plex Mono para las fuentes de cada dato</dd></div>
+        <div><dt>Paleta</dt><dd><div class="muestras"><i style="background:#F7F7F4"></i><i style="background:#1C1C1A"></i><i style="background:#FFFFFF"></i><i style="background:#C4E83E"></i></div></dd></div>
+        <div><dt>Firma</dt><dd>Cada número de la respuesta dice de qué tabla y de qué fecha sale.</dd></div>
+        <div><dt>Vivo</dt><dd>Propone la pregunta del día («¿quién no pagó este mes?») antes de que la hagas.</dd></div>
+        <div><dt>Para</dt><dd>Pulso, la vista del director en Core y SINEP, Collection para cobradores</dd></div>
+      </dl>
+      <div><div class="lamina"><div class="mK" role="img" aria-label="Maqueta de Diálogo: pregunta en Collection">
+        <div class="sup"><span>Cobranzas · Estudio Paz</span><span>jueves 24 · 14:40</span></div>
+        <div class="centro">
+          <div class="preg">¿Quién prometió pagar esta semana y todavía no pagó?</div>
+          <div class="resp">Son <b>7 personas</b> por $ 1.284.000. Las tres más grandes: Ferreyra ($ 410.000, prometió el lunes), Gómez Hnos. ($ 260.000, martes) y Lucero ($ 190.000, ayer).
+            <div class="fuente">promesas_pago · cobros · actualizado hace 3 min</div></div>
+          <div class="chips"><span>Mandarles un recordatorio</span><span>Ver las 7</span><span>¿Y el mes pasado?</span></div>
+        </div>
+        <div class="entrada"><span>Preguntá otra cosa…</span><span>↵</span></div>
+      </div></div></div>
+    </div>
+  </article>
+
+  <section style="display:grid; gap:18px" aria-labelledby="t-asig">
+    <span class="rotulo">Propuesta</span>
+    <h2 id="t-asig">Qué familia le queda a cada sistema</h2>
+    <p>La primera opción es la recomendada; la segunda es la alternativa si el cliente trabaja distinto. Nada se cambia sin que lo elijas: cada sistema arranca con una pantalla piloto.</p>
+    <div class="tabla"><table>
+      <thead><tr><th>Sistema</th><th>Recomendada</th><th>Alternativa</th><th>Por qué</th></tr></thead>
+      <tbody>
+        <tr><td><b>Marketing</b></td><td><span class="chip">A Encuadre</span></td><td>—</td><td>Hecha y en producción.</td></tr>
+        <tr><td><b>Clinic</b></td><td><span class="chip">B Consultorio</span></td><td><span class="chip">H Revista</span></td><td>El día se organiza por turnos y mensajes.</td></tr>
+        <tr><td><b>Glow</b></td><td><span class="chip">H Revista</span></td><td><span class="chip">B Consultorio</span></td><td>Es un negocio de experiencia y de imagen.</td></tr>
+        <tr><td><b>Stay</b></td><td><span class="chip">H Revista</span></td><td><span class="chip">I Carta</span></td><td>Llegadas del día como sumario; con varias propiedades, el mapa.</td></tr>
+        <tr><td><b>School · Campus</b></td><td><span class="chip">D Cuaderno</span></td><td><span class="chip">B Consultorio</span></td><td>El docente piensa en clases, presentes y notas.</td></tr>
+        <tr><td><b>Library</b></td><td><span class="chip">D Cuaderno</span></td><td><span class="chip">A Encuadre</span></td><td>Préstamos y vencimientos como fichas de biblioteca.</td></tr>
+        <tr><td><b>Gov</b></td><td><span class="chip">E Expediente</span></td><td><span class="chip">A Encuadre</span></td><td>Todo es un expediente con pases y fojas.</td></tr>
+        <tr><td><b>SINEP</b></td><td><span class="chip">A Encuadre</span></td><td><span class="chip">E Expediente</span></td><td>Legajos en Encuadre; trámites y licencias en Expediente.</td></tr>
+        <tr><td><b>Union</b></td><td><span class="chip">E Expediente</span></td><td><span class="chip">K Diálogo</span></td><td>Afiliaciones y reclamos siguen un circuito.</td></tr>
+        <tr><td><b>Customs</b></td><td><span class="chip">E Expediente</span></td><td><span class="chip">I Carta</span></td><td>Cada operación es un legajo; los depósitos, un mapa.</td></tr>
+        <tr><td><b>Table</b></td><td><span class="chip">F Comanda</span></td><td><span class="chip">C Sala de control</span></td><td>Cocina y salón piensan en tickets.</td></tr>
+        <tr><td><b>Pharma</b></td><td><span class="chip">F Comanda</span></td><td><span class="chip">J Instrumento</span></td><td>Mostrador en Comanda; lotes y vencimientos en Instrumento.</td></tr>
+        <tr><td><b>Collection</b></td><td><span class="chip">K Diálogo</span></td><td><span class="chip">F Comanda</span></td><td>El cobrador pregunta «¿quién debe?» todo el día.</td></tr>
+        <tr><td><b>Workshop</b></td><td><span class="chip">G Obra</span></td><td><span class="chip">F Comanda</span></td><td>Las órdenes de trabajo son fichas en un tablero.</td></tr>
+        <tr><td><b>Freight</b></td><td><span class="chip">I Carta</span></td><td><span class="chip">C Sala de control</span></td><td>Rutas en el mapa; despacho en la sala de control.</td></tr>
+        <tr><td><b>Lab · Galénica</b></td><td><span class="chip">J Instrumento</span></td><td><span class="chip">C Sala de control</span></td><td>Todo valor tiene tolerancia.</td></tr>
+        <tr><td><b>Core</b></td><td><span class="chip">A Encuadre</span></td><td><span class="chip">K Diálogo</span></td><td>Gestión densa; el dueño pregunta en Diálogo.</td></tr>
+        <tr><td><b>Broker</b></td><td><span class="chip">A Encuadre</span></td><td><span class="chip">E Expediente</span></td><td>Pólizas y siniestros son legajos con vencimientos.</td></tr>
+        <tr><td><b>Pulso</b></td><td><span class="chip">K Diálogo</span></td><td><span class="chip">B Consultorio</span></td><td>Pensado para preguntar cómo va el equipo.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section style="display:grid; gap:14px" aria-labelledby="t-igual">
+    <span class="rotulo">Lo que no cambia</span>
+    <h2 id="t-igual">Lo que comparten las once</h2>
+    <ul class="lista">
+      <li>El isotipo de Marco y el punto lima que late cuando algo pide atención.</li>
+      <li>Cada pantalla empieza por lo que hay que hacer, en el idioma del rubro.</li>
+      <li>Están vivas: se enteran solas de los cambios y lo nuevo parpadea una vez.</li>
+      <li>El tiempo se dice como una persona, con la fecha exacta al pasar el mouse.</li>
+      <li>Quién hizo qué lo sella la base, no el navegador.</li>
+      <li>Ninguna usa selector de empresa arriba del menú, grilla de indicadores gigantes ni íconos en cuadraditos.</li>
+    </ul>
+    <p class="pie">La regla completa está en el Kit de Diseño Marco (packages/axis-ui/KIT_DE_DISENO.md). Las maquetas usan datos de ejemplo.</p>
+  </section>
+</div>

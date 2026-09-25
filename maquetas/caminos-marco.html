@@ -1,0 +1,400 @@
+<title>Caminos de diseño Marco</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Young+Serif&family=Archivo:wght@500;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root {
+  --papel: #EDEFEA;
+  --hoja: #F8F9F6;
+  --tinta: #15181A;
+  --tinta-2: #4A4F4B;
+  --tinta-3: #6B706B;
+  --linea: #D3D7CF;
+  --lima: #C4E83E;
+  --oliva: #4D6600;
+  --rojo: #B3321F;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --papel: #111312; --hoja: #191C1A; --tinta: #EEF0EA; --tinta-2: #B9BEB6; --tinta-3: #9AA096;
+    --linea: #2E332F; --oliva: #C4E83E; --rojo: #F07A64; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --papel: #111312; --hoja: #191C1A; --tinta: #EEF0EA; --tinta-2: #B9BEB6; --tinta-3: #9AA096;
+  --linea: #2E332F; --oliva: #C4E83E; --rojo: #F07A64; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--papel); color: var(--tinta);
+  font: 400 16px/1.6 "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  padding: 0 20px;
+}
+.pagina { max-width: 1080px; margin: 0 auto; padding-block: 48px 96px; display: grid; gap: 72px; }
+h1, h2, h3 { font-family: "Bricolage Grotesque", "Segoe UI", sans-serif; text-wrap: balance; margin: 0; letter-spacing: -0.02em; }
+h1 { font-size: clamp(38px, 6vw, 64px); line-height: 1.02; font-weight: 800; }
+h2 { font-size: clamp(26px, 3.4vw, 36px); line-height: 1.1; font-weight: 700; }
+h3 { font-size: 21px; line-height: 1.2; font-weight: 700; }
+p { margin: 0; max-width: 66ch; }
+.mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 13px; letter-spacing: 0.02em; }
+.rotulo { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--tinta-3); }
+.bajada { color: var(--tinta-2); font-size: 18px; }
+
+/* Las escuadras del isotipo de Marco: encuadran lo que importa. */
+.encuadre { position: relative; padding: 28px; }
+.encuadre::before, .encuadre::after, .encuadre > .e-b::before, .encuadre > .e-b::after {
+  content: ""; position: absolute; width: 22px; height: 22px; border: 3px solid var(--tinta); pointer-events: none;
+}
+.encuadre::before { top: 0; left: 0; border-right: 0; border-bottom: 0; }
+.encuadre::after { top: 0; right: 0; border-left: 0; border-bottom: 0; }
+.encuadre > .e-b::before { bottom: 0; left: 0; border-right: 0; border-top: 0; }
+.encuadre > .e-b::after { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+.punto { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: var(--lima); box-shadow: inset 0 0 0 3.5px var(--tinta); vertical-align: middle; }
+
+/* Portada */
+.portada { display: grid; gap: 24px; }
+.portada .marca { display: flex; align-items: center; gap: 12px; }
+.cita { font-family: "Bricolage Grotesque", sans-serif; font-size: 22px; font-weight: 500; color: var(--tinta); }
+.cita b { background: var(--lima); color: #15181A; padding: 0 6px; font-weight: 700; }
+
+/* Listas de dos columnas */
+.pares { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px 40px; }
+.par { display: grid; gap: 4px; padding-top: 14px; border-top: 2px solid var(--tinta); }
+.par strong { font-family: "Bricolage Grotesque", sans-serif; font-size: 18px; }
+.par span { color: var(--tinta-2); font-size: 15px; }
+
+/* Direcciones */
+.direccion { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 36px; align-items: start; }
+@media (max-width: 860px) { .direccion { grid-template-columns: 1fr; } }
+.ficha { display: grid; gap: 16px; }
+.ficha dl { display: grid; grid-template-columns: 110px 1fr; gap: 8px 14px; margin: 0; font-size: 15px; }
+.ficha dt { font-family: "IBM Plex Mono", monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--tinta-3); padding-top: 3px; }
+.ficha dd { margin: 0; }
+.muestras { display: flex; gap: 6px; }
+.muestras i { width: 34px; height: 34px; border-radius: 4px; display: block; border: 1px solid rgba(0,0,0,.12); }
+.pantalla { border-radius: 10px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 18px 40px -18px rgba(0,0,0,.35); max-width: 100%; }
+.pie-pantalla { font-size: 13px; color: var(--tinta-3); margin-top: 10px; }
+
+/* ── Maqueta A: Encuadre ───────────────────────── */
+.mA { background: #F4F5F1; color: #17191A; font: 400 13px/1.45 "IBM Plex Sans", sans-serif; display: grid; grid-template-columns: 150px 1fr; min-height: 400px; }
+@media (max-width: 560px) { .mA { grid-template-columns: 1fr; } .mA .lat { display: none; } .mA td:nth-child(2) { display: none; } }
+.mA .lat { background: #17191A; color: #D9DDD4; padding: 16px 12px; display: grid; align-content: start; gap: 4px; }
+.mA .lat .ms { display: flex; align-items: center; gap: 8px; color: #fff; font-weight: 600; margin-bottom: 14px; }
+.mA .lat a { color: #AEB3A9; padding: 5px 8px; font-size: 12.5px; text-decoration: none; }
+.mA .lat a.on { color: #fff; box-shadow: inset 2px 0 0 #C4E83E; }
+.mA .cuerpo { padding: 16px 20px; display: grid; gap: 14px; align-content: start; }
+.mA .top { display: flex; justify-content: space-between; align-items: baseline; }
+.mA .top b { font-family: "Bricolage Grotesque", sans-serif; font-size: 20px; letter-spacing: -0.02em; }
+.mA .top span { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: #6B706B; }
+.mA .foco { position: relative; padding: 14px 16px; }
+.mA .foco::before, .mA .foco::after { content: ""; position: absolute; width: 14px; height: 14px; border: 2.5px solid #17191A; }
+.mA .foco::before { top: 0; left: 0; border-right: 0; border-bottom: 0; }
+.mA .foco::after { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+.mA .foco .t { font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: #6B706B; }
+.mA .foco .g { font-family: "Bricolage Grotesque", sans-serif; font-size: 22px; font-weight: 700; margin-top: 2px; letter-spacing: -0.02em; }
+.mA .foco .g em { font-style: normal; background: #C4E83E; padding: 0 4px; }
+.mA table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.mA td { padding: 7px 4px; border-top: 1px solid #DADDD5; }
+.mA td.n { font-family: "IBM Plex Mono", monospace; text-align: right; color: #17191A; }
+.mA .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #C4E83E; box-shadow: 0 0 0 2px #17191A; margin-right: 7px; }
+.mA .dot.off { background: transparent; }
+.mA .fila { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid #DADDD5; }
+.mA .fila div { padding: 8px 10px; border-left: 1px solid #DADDD5; }
+.mA .fila div:first-child { border-left: 0; }
+.mA .fila small { display: block; font-size: 10.5px; color: #6B706B; }
+.mA .fila strong { font-family: "IBM Plex Mono", monospace; font-size: 17px; font-weight: 500; }
+
+/* ── Maqueta B: Consultorio ────────────────────── */
+.mB { background: #E9F1EE; color: #1D2B28; font: 400 13px/1.5 "IBM Plex Sans", sans-serif; padding: 18px 20px; min-height: 400px; display: grid; gap: 14px; align-content: start; }
+.mB .top { display: flex; justify-content: space-between; align-items: center; }
+.mB .top .nombre { font-family: "Young Serif", Georgia, serif; font-size: 22px; }
+.mB .top .cli { font-size: 12px; color: #4E6560; }
+.mB .avatares { display: flex; }
+.mB .avatares i { width: 26px; height: 26px; border-radius: 50%; border: 2px solid #E9F1EE; margin-left: -7px; display: grid; place-items: center; font-style: normal; font-size: 10.5px; font-weight: 600; color: #fff; }
+.mB .dia { display: grid; grid-template-columns: 1.3fr 1fr; gap: 14px; }
+@media (max-width: 520px) { .mB .dia { grid-template-columns: 1fr; } }
+.mB .agenda { background: #fff; border-radius: 14px; padding: 12px 14px; }
+.mB .agenda h4, .mB .cola h4 { margin: 0 0 8px; font-family: "Young Serif", Georgia, serif; font-weight: 400; font-size: 15px; }
+.mB .turno { display: grid; grid-template-columns: 44px 1fr; gap: 8px; padding: 6px 0; border-top: 1px dashed #C9DAD5; font-size: 12.5px; }
+.mB .turno:first-of-type { border-top: 0; }
+.mB .turno .h { font-weight: 600; color: #0F766E; }
+.mB .turno .ahora { background: #0F766E; color: #fff; border-radius: 6px; padding: 0 5px; font-size: 10.5px; margin-left: 6px; }
+.mB .turno small { display: block; color: #5F7570; font-size: 11.5px; }
+.mB .cola { background: #0F766E; color: #E7F4F1; border-radius: 14px; padding: 12px 14px; display: grid; gap: 8px; align-content: start; }
+.mB .cola h4 { color: #fff; }
+.mB .msj { background: rgba(255,255,255,.12); border-radius: 10px 10px 10px 2px; padding: 7px 9px; font-size: 12px; }
+.mB .msj b { color: #fff; }
+.mB .mandar { justify-self: start; background: #fff; color: #0F766E; font-weight: 600; font-size: 12px; border-radius: 999px; padding: 4px 11px; }
+.mB .nota { font-family: "Young Serif", Georgia, serif; font-size: 14px; color: #3D5550; }
+
+/* ── Maqueta C: Sala de control ────────────────── */
+.mC { background: #16181C; color: #D6D9DE; font: 400 12.5px/1.45 "Archivo", sans-serif; padding: 14px 16px; min-height: 400px; display: grid; gap: 12px; align-content: start; }
+.mC .top { display: flex; justify-content: space-between; align-items: center; font-family: "JetBrains Mono", monospace; font-size: 11px; color: #8A9099; }
+.mC .top b { font-family: "Archivo", sans-serif; font-weight: 800; font-size: 15px; color: #fff; letter-spacing: .02em; text-transform: uppercase; }
+.mC .vivo { color: #F5A524; }
+.mC .vivo::before { content: "●"; margin-right: 5px; animation: latido 1.6s ease-in-out infinite; }
+@keyframes latido { 50% { opacity: .25; } }
+@media (prefers-reduced-motion: reduce) { .mC .vivo::before { animation: none; } }
+.mC .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #2A2E35; border: 1px solid #2A2E35; }
+@media (max-width: 520px) { .mC .kpis { grid-template-columns: repeat(2, 1fr); } }
+.mC .kpis div { background: #1C1F24; padding: 8px 10px; }
+.mC .kpis small { display: block; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #8A9099; }
+.mC .kpis strong { font-family: "JetBrains Mono", monospace; font-size: 20px; color: #fff; font-weight: 600; }
+.mC .kpis svg { display: block; width: 100%; height: 22px; margin-top: 4px; }
+.mC .kpis .sube { color: #7BD389; font-family: "JetBrains Mono", monospace; font-size: 10.5px; }
+.mC .flujo { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 520px) { .mC .flujo { grid-template-columns: 1fr; } }
+.mC .caja { border: 1px solid #2A2E35; padding: 8px 10px; }
+.mC .caja h5 { margin: 0 0 6px; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: #8A9099; font-weight: 700; }
+.mC .ev { font-family: "JetBrains Mono", monospace; font-size: 11px; display: grid; grid-template-columns: 40px 1fr; gap: 6px; padding: 3px 0; color: #B8BDC5; }
+.mC .ev span:first-child { color: #6D737D; }
+.mC .ev .ok { color: #7BD389; } .mC .ev .al { color: #F5A524; }
+.mC .barra { height: 16px; background: #F5A524; margin: 4px 0; display: flex; align-items: center; padding-left: 6px; color: #16181C; font-weight: 700; font-size: 10.5px; }
+.mC .teclas { font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: #6D737D; }
+.mC .teclas kbd { border: 1px solid #3A3F47; padding: 0 4px; border-radius: 3px; color: #B8BDC5; font-family: inherit; }
+
+/* Tabla de reglas y stack */
+.tabla-caja { overflow-x: auto; }
+table.t { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 560px; }
+table.t th { text-align: left; font-family: "IBM Plex Mono", monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--tinta-3); font-weight: 500; padding: 10px 12px; border-bottom: 2px solid var(--tinta); }
+table.t td { padding: 12px; border-bottom: 1px solid var(--linea); vertical-align: top; }
+table.t td:first-child { font-weight: 600; }
+table.t tr.elegida td { background: color-mix(in srgb, var(--lima) 22%, transparent); }
+.chip { display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: 11.5px; padding: 1px 8px; border: 1px solid var(--tinta); border-radius: 3px; margin: 2px 4px 2px 0; }
+
+.pasos { display: grid; gap: 14px; counter-reset: paso; margin: 0; padding: 0; list-style: none; }
+.pasos li { display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: baseline; }
+.pasos li::before { counter-increment: paso; content: counter(paso); font-family: "Bricolage Grotesque", sans-serif; font-size: 30px; font-weight: 800; line-height: 1; color: var(--oliva); }
+.pasos b { font-family: "Bricolage Grotesque", sans-serif; font-size: 18px; }
+.nota-final { font-size: 14px; color: var(--tinta-3); }
+</style>
+
+<div class="pagina">
+
+  <header class="portada">
+    <div class="marca">
+      <svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 26 V14 H26"/><path d="M38 14 H50 V26"/><path d="M50 38 V50 H38"/><path d="M26 50 H14 V38"/></g><circle cx="32" cy="32" r="7.2" fill="#C4E83E"/><circle cx="32" cy="32" r="2.9" fill="#15181A"/></svg>
+      <span class="rotulo">Soluciones Marco · diseño del ecosistema · 24/09/2026</span>
+    </div>
+    <h1>Que cada sistema se sienta vivo, y que ninguno parezca una plantilla</h1>
+    <p class="bajada">Tres caminos posibles, la misma pantalla dibujada en cada uno y una regla para aplicar en todo lo que construyamos. No se tocó ningún sistema: esto es para elegir.</p>
+    <p class="cita">Lo primero que preguntó el cliente de la clínica fue <b>"¿eso lo hiciste con Claude?"</b>. Lo reconoció por el selector de empresa.</p>
+  </header>
+
+  <section class="encuadre"><span class="e-b"></span>
+    <div style="display:grid; gap:22px">
+      <span class="rotulo">Por qué se nota</span>
+      <h2>Seis señales de plantilla que hoy tienen los sistemas</h2>
+      <div class="pares">
+        <div class="par"><strong>El selector de empresa arriba del menú</strong><span>Es el "team switcher" de las plantillas shadcn/v0. Además no le sirve al cliente, que tiene una sola empresa.</span></div>
+        <div class="par"><strong>Tarjetas con número gigante</strong><span>Una grilla de indicadores arriba de todo, en cada sistema, aunque el número no sea lo que hay que hacer hoy.</span></div>
+        <div class="par"><strong>Ícono de línea dentro de un cuadradito de color</strong><span>El adorno más repetido de los paneles generados.</span></div>
+        <div class="par"><strong>Inter, bordes redondeados y sombra suave en todo</strong><span>Cuando todo es una tarjeta, nada se destaca.</span></div>
+        <div class="par"><strong>Un párrafo explicando cada pantalla</strong><span>La herramienta se explica en vez de mostrarse. Para eso ya está el manual.</span></div>
+        <div class="par"><strong>Los 20 sistemas con la misma cara</strong><span>Una escuela, un taller y un organismo del Estado se ven iguales. Eso es lo que hace que parezcan de fábrica.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid; gap:22px">
+    <span class="rotulo">Qué quiere decir "vivo"</span>
+    <h2>Un sistema vivo reacciona, recuerda y sabe qué hora es</h2>
+    <p class="bajada">Una planilla linda muestra filas. Un sistema vivo cambia con lo que pasa y con quién lo mira. Todo esto se puede hacer con lo que ya tenemos (Supabase avisa cambios en tiempo real).</p>
+    <div class="pares">
+      <div class="par"><strong>Se mueve cuando algo pasa</strong><span>Si alguien escribe por WhatsApp mientras mirás la pantalla, el número sube y la fila aparece, sin recargar.</span></div>
+      <div class="par"><strong>Sabe qué hora es</strong><span>A la mañana muestra la agenda del día; a la tarde, qué quedó pendiente; el lunes, cómo cerró la semana.</span></div>
+      <div class="par"><strong>Muestra presencia</strong><span>"Carla está viendo este paciente": dos personas no le escriben al mismo tiempo.</span></div>
+      <div class="par"><strong>Empieza por lo que hay que hacer</strong><span>La primera pantalla es una tarea ("escribile a estas 11 personas"), no un tablero para interpretar.</span></div>
+      <div class="par"><strong>Habla como el rubro</strong><span>Un taller dice "órdenes" y "entregas"; una clínica, "turnos" y "sillón"; un organismo, "expedientes". Los textos no son genéricos.</span></div>
+      <div class="par"><strong>Tiene un gesto propio</strong><span>Una sola animación con sentido: el punto del isotipo que late cuando algo pide atención. Nada de efectos sueltos.</span></div>
+    </div>
+  </section>
+
+  <section style="display:grid; gap:40px">
+    <div style="display:grid; gap:12px">
+      <span class="rotulo">Tres caminos · la misma pantalla</span>
+      <h2>El Inicio de la clínica, dibujado de tres maneras</h2>
+      <p class="bajada">Mismos datos de prueba en las tres: consultas sin turno, turnos del día y el embudo. Cambia la forma de pensar la pantalla, no sólo los colores.</p>
+    </div>
+
+    <!-- A -->
+    <article class="direccion">
+      <div class="ficha">
+        <span class="rotulo">Camino A</span>
+        <h3>Encuadre</h3>
+        <p>Nace del isotipo: cuatro escuadras que encuadran un punto. Cada pantalla encuadra una sola cosa, lo que hay que hacer ahora. El resto es información densa y sobria, en tablas y números monoespaciados, como una herramienta profesional.</p>
+        <dl>
+          <dt>Letras</dt><dd>Bricolage Grotesque en títulos, IBM Plex Sans y Plex Mono para datos</dd>
+          <dt>Firma</dt><dd>Las escuadras marcan el foco; el punto lima late cuando algo pide atención</dd>
+          <dt>Sirve para</dt><dd>Marketing, Core, Broker, Collection, Customs</dd>
+          <dt>Riesgo</dt><dd>Mal hecho queda frío. Necesita buenos textos.</dd>
+        </dl>
+        <div class="muestras" aria-label="Paleta del camino A"><i style="background:#F4F5F1"></i><i style="background:#17191A"></i><i style="background:#C4E83E"></i><i style="background:#6B706B"></i><i style="background:#DADDD5"></i></div>
+      </div>
+      <div>
+        <div class="pantalla mA" role="img" aria-label="Maqueta del camino Encuadre">
+          <nav class="lat">
+            <div class="ms"><svg width="20" height="20" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 26 V14 H26"/><path d="M38 14 H50 V26"/><path d="M50 38 V50 H38"/><path d="M26 50 H14 V38"/></g><circle cx="32" cy="32" r="8" fill="#C4E83E"/></svg>Sonríe Pilar</div>
+            <a class="on">Hoy</a><a>Pacientes</a><a>Embudo</a><a>Campañas</a><a>Redes</a><a>Ajustes</a>
+          </nav>
+          <div class="cuerpo">
+            <div class="top"><b>Jueves 24</b><span>actualizado hace 2 min</span></div>
+            <div class="foco">
+              <div class="t">Ahora</div>
+              <div class="g">Escribile a <em>11 personas</em> que consultaron y no sacaron turno</div>
+            </div>
+            <table>
+              <tr><td><span class="dot"></span>Lucía Gómez</td><td>implantes · consultó el lunes</td><td class="n">WhatsApp</td></tr>
+              <tr><td><span class="dot"></span>Martín Díaz</td><td>ortodoncia · consultó ayer</td><td class="n">WhatsApp</td></tr>
+              <tr><td><span class="dot off"></span>Sofía López</td><td>control · hace 9 días</td><td class="n">WhatsApp</td></tr>
+            </table>
+            <div class="fila">
+              <div><small>escribieron</small><strong>70</strong></div>
+              <div><small>agendaron</small><strong>69</strong></div>
+              <div><small>vinieron</small><strong>50</strong></div>
+              <div><small>tratamiento</small><strong>21</strong></div>
+            </div>
+          </div>
+        </div>
+        <p class="pie-pantalla">Una sola cosa encuadrada arriba; los números del embudo abajo, chicos, como referencia.</p>
+      </div>
+    </article>
+
+    <!-- B -->
+    <article class="direccion">
+      <div class="ficha">
+        <span class="rotulo">Camino B</span>
+        <h3>Consultorio</h3>
+        <p>Pensado para negocios de atención a personas. La pantalla principal es el día: la agenda en una columna y la conversación en la otra, con los mensajes listos para mandar. Más cálido, con una letra con serifa amable y tonos del rubro.</p>
+        <dl>
+          <dt>Letras</dt><dd>Young Serif en títulos, IBM Plex Sans para leer</dd>
+          <dt>Firma</dt><dd>La agenda del día como portada; los mensajes con forma de burbuja</dd>
+          <dt>Sirve para</dt><dd>Clinic, Glow, Stay, School, Library, Pulso</dd>
+          <dt>Riesgo</dt><dd>Si se abusa, parece una app de consumo y pierde seriedad.</dd>
+        </dl>
+        <div class="muestras" aria-label="Paleta del camino B"><i style="background:#E9F1EE"></i><i style="background:#0F766E"></i><i style="background:#1D2B28"></i><i style="background:#FFFFFF"></i><i style="background:#C9DAD5"></i></div>
+      </div>
+      <div>
+        <div class="pantalla mB" role="img" aria-label="Maqueta del camino Consultorio">
+          <div class="top">
+            <div><div class="nombre">Buen día, Julieta</div><div class="cli">Sonríe Pilar · 14 turnos hoy</div></div>
+            <div class="avatares"><i style="background:#0F766E">CL</i><i style="background:#B45309">MR</i><i style="background:#6D28D9">JG</i></div>
+          </div>
+          <div class="dia">
+            <div class="agenda">
+              <h4>El día en el sillón</h4>
+              <div class="turno"><span class="h">09:00</span><span>Lucía Gómez <small>control semestral · sillón 1</small></span></div>
+              <div class="turno"><span class="h">09:30</span><span>Martín Díaz <span class="ahora">ahora</span><small>primera consulta · vino por Instagram</small></span></div>
+              <div class="turno"><span class="h">10:15</span><span>Sofía López <small>implante, segunda etapa · sillón 2</small></span></div>
+            </div>
+            <div class="cola">
+              <h4>Para escribir hoy</h4>
+              <div class="msj"><b>Tomás R.</b> consultó por ortodoncia el martes y no agendó.</div>
+              <div class="msj"><b>Camila F.</b> cumple años hoy.</div>
+              <span class="mandar">Abrir los 11 mensajes</span>
+            </div>
+          </div>
+          <p class="nota">Esta semana, de cada 10 que escribieron, 7 agendaron.</p>
+        </div>
+        <p class="pie-pantalla">El dato del embudo aparece como una frase, no como un tablero.</p>
+      </div>
+    </article>
+
+    <!-- C -->
+    <article class="direccion">
+      <div class="ficha">
+        <span class="rotulo">Camino C</span>
+        <h3>Sala de control</h3>
+        <p>Para operaciones donde pasan muchas cosas por minuto. Oscuro, denso, con lo que está pasando en vivo a la vista, pequeños gráficos de tendencia y atajos de teclado. Se siente como el tablero de una torre de control, no como un formulario.</p>
+        <dl>
+          <dt>Letras</dt><dd>Archivo en títulos, JetBrains Mono para cifras y eventos</dd>
+          <dt>Firma</dt><dd>La línea de eventos en vivo; el ámbar indica lo que requiere acción</dd>
+          <dt>Sirve para</dt><dd>Freight, Workshop, Table, Pharma, Lab, SINEP y Gov en su parte operativa</dd>
+          <dt>Riesgo</dt><dd>Cansa si se usa todo el día sin un modo claro.</dd>
+        </dl>
+        <div class="muestras" aria-label="Paleta del camino C"><i style="background:#16181C"></i><i style="background:#1C1F24"></i><i style="background:#F5A524"></i><i style="background:#7BD389"></i><i style="background:#D6D9DE"></i></div>
+      </div>
+      <div>
+        <div class="pantalla mC" role="img" aria-label="Maqueta del camino Sala de control">
+          <div class="top"><b>Sonríe Pilar</b><span class="vivo">en vivo · 24/09 09:41</span></div>
+          <div class="kpis">
+            <div><small>escriben hoy</small><strong>12</strong><svg viewBox="0 0 100 22" preserveAspectRatio="none"><polyline points="0,18 15,15 30,16 45,10 60,12 75,7 100,4" fill="none" stroke="#F5A524" stroke-width="2"/></svg></div>
+            <div><small>agendan</small><strong>8</strong> <span class="sube">+2</span><svg viewBox="0 0 100 22" preserveAspectRatio="none"><polyline points="0,17 20,16 40,13 60,14 80,9 100,8" fill="none" stroke="#7BD389" stroke-width="2"/></svg></div>
+            <div><small>en sillón</small><strong>3/4</strong><svg viewBox="0 0 100 22" preserveAspectRatio="none"><rect x="0" y="6" width="75" height="10" fill="#7BD389"/><rect x="75" y="6" width="25" height="10" fill="#2A2E35"/></svg></div>
+            <div><small>sin turno</small><strong style="color:#F5A524">11</strong><svg viewBox="0 0 100 22" preserveAspectRatio="none"><polyline points="0,6 25,9 50,8 75,12 100,11" fill="none" stroke="#8A9099" stroke-width="2"/></svg></div>
+          </div>
+          <div class="flujo">
+            <div class="caja">
+              <h5>Lo que está pasando</h5>
+              <div class="ev"><span>09:41</span><span class="al">Tomás R. escribió · pregunta precio</span></div>
+              <div class="ev"><span>09:38</span><span class="ok">Martín D. llegó · sillón 1</span></div>
+              <div class="ev"><span>09:30</span><span>Lucía G. agendó · jueves 10:00</span></div>
+              <div class="ev"><span>09:12</span><span class="ok">Sofía L. pagó la seña</span></div>
+            </div>
+            <div class="caja">
+              <h5>Requiere acción</h5>
+              <div class="barra">11 consultas sin turno</div>
+              <div class="ev"><span>3</span><span>presupuestos sin respuesta &gt; 7 días</span></div>
+              <div class="ev"><span>18</span><span>pacientes sin control &gt; 6 meses</span></div>
+              <p class="teclas" style="margin:8px 0 0">Atajos: <kbd>W</kbd> escribir · <kbd>J</kbd> siguiente · <kbd>/</kbd> buscar</p>
+            </div>
+          </div>
+        </div>
+        <p class="pie-pantalla">Lo que pasa minuto a minuto ocupa el centro; lo que requiere acción, en ámbar.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="encuadre"><span class="e-b"></span>
+    <div style="display:grid; gap:22px">
+      <span class="rotulo">La regla replicable</span>
+      <h2>Un ADN común, tres familias y una firma por sistema</h2>
+      <p class="bajada">No es "un diseño para todos" ni "cada uno como salga". Es una capa que se comparte siempre, una familia elegida por el tipo de trabajo, y un detalle propio de cada sistema.</p>
+      <div class="tabla-caja">
+        <table class="t">
+          <thead><tr><th>Capa</th><th>Qué define</th><th>Cómo se aplica</th></tr></thead>
+          <tbody>
+            <tr><td>ADN Marco (igual en todos)</td><td>Las escuadras como gesto de foco, el punto que late cuando algo pide atención, la escala de espacios, la accesibilidad, cómo se comportan los botones, formularios, avisos y tablas.</td><td>Un paquete compartido; nadie lo reescribe.</td></tr>
+            <tr><td>Familia (una de tres)</td><td>Encuadre, Consultorio o Sala de control: tipografías, densidad, tema claro u oscuro, forma de la portada.</td><td>Se elige al crear el sistema, según quién lo usa y cuánto tiempo.</td></tr>
+            <tr><td>Firma del sistema</td><td>El color de acento, el vocabulario del rubro, la pantalla principal y un elemento que sólo ese sistema tiene (el "sillón del día", la "línea de entregas", el "expediente").</td><td>Se decide en la primera pantalla y queda escrito en su CLAUDE.md.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pares">
+        <div class="par"><strong>Prohibido por defecto</strong><span>El selector de empresa en el menú, grillas de números como portada, íconos en cuadraditos de color, párrafos explicando cada pantalla, "Buen día" sin información, Inter como única letra.</span></div>
+        <div class="par"><strong>Obligatorio antes de construir</strong><span>Decir qué es lo primero que hace la persona al entrar, con qué palabras de su rubro, y qué cambia en la pantalla cuando pasa algo.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid; gap:22px">
+    <span class="rotulo">El stack de diseño</span>
+    <h2>Sí conviene cambiarlo, pero no por el camino más común</h2>
+    <p class="bajada">Hoy cada sistema tiene su tema en CSS a mano y un paquete compartido (@axis-human/ui) que casi nadie usa igual. Así se copia y se deforma en veinte lugares.</p>
+    <div class="tabla-caja">
+      <table class="t">
+        <thead><tr><th>Opción</th><th>A favor</th><th>En contra</th></tr></thead>
+        <tbody>
+          <tr><td>Seguir como hoy</td><td>No hay que migrar nada.</td><td>Cada sistema se desvía; los arreglos se hacen veinte veces; el aspecto sigue siendo el de plantilla.</td></tr>
+          <tr><td>Tailwind + shadcn/ui</td><td>Rápido, mucha documentación.</td><td>Es exactamente el aspecto que el cliente reconoció. Todos los paneles generados usan esto.</td></tr>
+          <tr class="elegida"><td>Componentes sin estilo + tokens propios <span class="chip">recomendada</span></td><td>La accesibilidad y el comportamiento vienen resueltos (Radix o React Aria); el aspecto es 100 % nuestro, con las tres familias como temas. Se suma Motion para las animaciones con sentido.</td><td>Hay que diseñar el paquete una vez con cuidado y migrar de a un sistema.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="nota-final">Se mantiene React + Vite + Supabase. Lo que cambia es la capa visual: un @axis-human/ui nuevo, con el ADN, las tres familias y las piezas comunes.</p>
+  </section>
+
+  <section style="display:grid; gap:22px">
+    <span class="rotulo">Para decidir</span>
+    <h2>Cómo seguiría, sin tocar nada hasta que elijas</h2>
+    <ol class="pasos">
+      <li><div><b>Elegís qué te gusta de cada camino.</b> Puede ser uno, o una mezcla (por ejemplo, el foco de A con la agenda de B para clínicas).</div></li>
+      <li><div><b>Escribo la regla de diseño</b> como documento de referencia, con lo prohibido y lo obligatorio, para que se aplique en todo lo que construyamos.</div></li>
+      <li><div><b>Hago una sola pantalla piloto</b> (el Inicio de Marketing) con la dirección elegida. La mirás en el sistema de verdad.</div></li>
+      <li><div><b>Si convence, se arma el paquete común</b> y se migra de a un sistema, empezando por el que vaya a ver un cliente primero.</div></li>
+    </ol>
+  </section>
+
+</div>
