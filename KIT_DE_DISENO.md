@@ -6,8 +6,11 @@ sólo le gustaban Encuadre (Marketing) y Monitor (Pulso); las otras diez se
 borraron. Y pidió lo que faltaba: **movimiento**. Cada kit tiene ahora una
 animación permanente propia, además de la estructura, las letras y la paleta.
 
-**El kit es un sistema en sí:** `C:\axis-human\kit` («Kit Marco»). Muestra los
-seis kits vivos sobre **las mismas tres pantallas** (Inicio, Personas,
+**La tarde del 26/09 pidió seis más, «bien distintas»: son doce.**
+
+**El kit es un sistema en sí:** `C:\axis-human\kit` («Kit Marco»,
+https://marco-kit.vercel.app). Muestra los
+doce kits vivos sobre **las mismas tres pantallas** (Inicio, Personas,
 Monitor), con el menú donde va en cada uno, y se le enseña al cliente para que
 elija. Lo elegido se imprime en un sistema con un comando (abajo).
 
@@ -35,10 +38,13 @@ portada seis veces.
 | **2. Kit** | Estructura (dónde va el menú), letras, paleta, y **un movimiento propio que no para**. | Entre los sistemas del mismo kit |
 | **3. Firma** | Color propio, el vocabulario del rubro y un elemento que sólo tiene ese sistema. | Nunca |
 
-## Los seis kits (26/09/2026)
+## Los doce kits (26/09/2026)
 
 Verlos vivos: `cd kit && npm run dev`. Cada uno cambia la **estructura** de la
-pantalla, no sólo los colores. **Sólo Encuadre tiene menú lateral.**
+pantalla, no sólo los colores. **Sólo Encuadre tiene menú lateral clásico**;
+los demás lo llevan arriba (fino, de color, centrado, solapas, píldoras
+flotantes, notas pegadas), abajo (dock), a la derecha (comandos), en vertical
+(lomo de afiche), como riel de íconos, o escondido en un orbe.
 
 | Kit | Para quién | Dónde va el menú | Letras | Paleta | Movimiento propio (permanente) | Estado |
 |---|---|---|---|---|---|---|
@@ -48,18 +54,26 @@ pantalla, no sólo los colores. **Sólo Encuadre tiene menú lateral.**
 | **Cristal** | Mostrar tecnología: laboratorios, finanzas, dirección | Riel angosto de íconos a la izquierda; el nombre aparece al pasar | Space Grotesk · Inter · JetBrains Mono | `#0B0D14` `#5EE7D6` `#5B5BF6` `#C2418C` | Tres orbes de color derivan detrás del vidrio; los paneles entran deslizándose; el acento respira | Nuevo |
 | **Diario** | Vender una experiencia o contar algo | Sin lateral: cabecera centrada como cabezal de diario, secciones bajo regla doble | Fraunces · Newsreader · IBM Plex Mono | `#FFFFFF` `#1B1A17` `#F4E04D` | La cinta de novedades corre; la regla se dibuja al entrar; las filas se imprimen línea a línea | Nuevo |
 | **Legajo** | Tramitar: organismos, sindicatos, aduana | Sin lateral: las solapas de la carpeta son el menú; recorrido de pases arriba | Source Serif 4 · IBM Plex Mono | `#E6E9EC` `#1B2A41` `#B3261E` | Por el recorrido de pases viaja un punto; el sello se estampa al entrar; la hoja se apila al abrir una ficha | Nuevo |
+| **Brújula** | Moverse por un territorio: logística, flotas, visitas | Buscador flotante centrado arriba con el menú como píldoras; el contenido es una hoja sobre la carta | IBM Plex Sans Condensed · Martian Mono | `#E4EDE6` `#0E4D64` `#E4572E` | Las curvas de nivel del fondo derivan; el «en vivo» es un radar que barre; la hoja entra desde abajo | Nuevo (tarde) |
+| **Obra** | Talleres, galpones, cocinas, mostradores: manos ocupadas | Dock de botones grandes **abajo**; cabecera con la luz de «en marcha» | Big Shoulders Display · Barlow | `#D9D7D0` `#111111` `#FFC700` | La cinta de peligro se desplaza; la luz de «en marcha» gira; los botones se hunden al tocar | Nuevo (tarde) |
+| **Terminal** | Quien opera con teclado: laboratorio, mesa de dinero, stock | Panel de comandos a la **derecha** con atajos [1]…[5]; línea de prompt arriba | Share Tech Mono | `#050807` `#9CFF8E` `#FFE45C` | El cursor titila; las líneas de barrido bajan; el comando se escribe solo al cambiar de pantalla | Nuevo (tarde) |
+| **Corcho** | Gente que no quiere sentir que usa «un sistema» | Notas adhesivas de colores como menú; el nombre en un papel colgado de una chinche; la pantalla es una hoja sujetada | Caveat · Nunito | `#C9A36E` `#FFFDF7` `#FFE66D` `#A8E6CF` `#FF7AA2` | El papel colgado se mece; la nota activa se despega; las filas caen como notas sueltas | Nuevo (tarde) |
+| **Cartel** | Marcas con carácter: gimnasios, clubes, cultura | Lomo negro angosto con el menú escrito **en vertical**, letra de afiche; franja arriba | Unbounded · Barlow | `#F3EFE4` `#111111` `#E63312` `#1D4ED8` `#F5C400` | Un círculo rojo rueda por la franja; los bloques entran deslizándose; el activo cambia de color de golpe | Nuevo (tarde) |
+| **Zen** | Calma: spa, salud mental, boutique, la vista del dueño | **Sin menú a la vista**: un orbe abajo al centro que respira y se abre en abanico; columna angosta centrada | Cormorant Garamond · Jost | `#F5F1EA` `#2E2A24` `#B89B6A` | El orbe respira cada 4 s; la línea de horizonte fluye; todo entra con desvanecido lento | Nuevo (tarde) |
 
 ### Qué kit le queda a cada sistema (propuesta; la decide el dueño, o el cliente)
 
 | Sistema | Recomendado | Alternativa |
 |---|---|---|
-| Marketing · Pulso | Encuadre (hecho) | Vitral |
-| Core · Broker · SINEP (legajos) | Encuadre | Cristal (vista del dueño) |
-| Gov · Union · Customs · SINEP (trámites y licencias) | Legajo | Encuadre |
-| Freight · Table · Workshop · Pharma | Monitor | Vitral |
-| Lab · Galénica · Collection | Cristal | Monitor |
-| Glow · Stay · Library | Diario | Vitral |
-| School · Campus · Clinic | Vitral | Diario |
+| Marketing · Pulso | Encuadre (hecho) | Vitral · Cartel |
+| Core · Broker · SINEP (legajos) | Encuadre | Cristal · Terminal (Broker) |
+| Gov · Union · Customs · SINEP (trámites y licencias) | Legajo | Encuadre · Brújula (Customs) |
+| Freight | Brújula | Monitor · Obra (depósito) |
+| Table · Workshop · Pharma (mostrador) | Obra | Monitor |
+| Lab · Galénica · Collection | Cristal | Terminal · Monitor |
+| Glow · Stay | Diario | Zen (spa, boutique) · Corcho |
+| Library · School (chicos) | Corcho | Diario · Vitral |
+| Campus · Clinic | Vitral | Cartel (Campus) · Zen (salud mental) |
 
 **Excepción permitida:** una pantalla operativa puede tomar otro kit dentro de
 un sistema (las fichadas de SINEP en Monitor, la mesa de entradas de Gov en
@@ -127,7 +141,7 @@ Una pantalla **no usa clases de un kit** (`enc-`, `mon-`, `vit-`, `cri-`,
 
 ## El guardián del kit
 
-`kit/src/lib/regla-kit.test.js` (53 pruebas el 26/09/2026). Mide, leyendo los
+`kit/src/lib/regla-kit.test.js` (101 pruebas con los doce kits, 26/09/2026). Mide, leyendo los
 archivos, que cada kit: existe con sus tres archivos y está en el registro;
 tiene **todas** sus reglas bajo `[data-kit]`; define todos los tokens; viste
 las clases del vocabulario; tiene al menos una animación `infinite` propia; sus
@@ -148,3 +162,4 @@ CI del repo `mendo2211/marco-kit`.
 - 24/09/2026: tres familias (Encuadre, Consultorio, Sala de control). Piloto Marketing en Encuadre, a producción esa noche.
 - 25/09/2026: once familias (A–K) más L Monitor y M Mesa de luz; Pulso migrado entero a Encuadre + Monitor.
 - **26/09/2026: seis kits con movimiento.** Se borraron Consultorio, Sala de control, Cuaderno, Expediente, Comanda, Obra, Revista, Carta, Instrumento y Diálogo (lo aprovechable de Expediente y Revista quedó en Legajo y Diario; Mesa de luz sigue siendo una pantalla de Pulso, no un kit). Las maquetas viejas están en `_archivo/kit-familias-2026-09-25/`.
+- **26/09/2026, tarde: doce.** «Me gustó mucho, te animás a 6 opciones más, bien distintas»: Brújula, Obra, Terminal, Corcho, Cartel y Zen. Cada una con una posición de menú que ninguna de las seis primeras tenía. Un defecto que apareció al sumarlas: el `<html>` del catálogo llevaba `data-kit="encuadre"` y las escuadras de Encuadre se colaban en todos los kits; en el catálogo el `data-kit` va sólo en cada `.k-app`.
